@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@mixin text44-48 {
+  @apply text-[44px] md:text-[46px] lg:text-[48px]
+}
+@mixin text36-48 {
+  @apply text-[36px] leading-tight sm:text-[40px] md:text-[44px] lg:text-[48px]
+}
+@mixin text40 {
+  @apply text-[46px] md:text-[48px] lg:text-[40px]
+}
+@mixin text24 {
+  @apply text-[18px] md:text-[20px] lg:text-[24px]
+}  
+@mixin text18 {
+  @apply text-[18px]
+}
+@mixin text16-18 {
+  @apply text-[16px] md:text-[18px]
+}
+@mixin text14-18 {
+  @apply text-[14px] md:text-[16px] lg:text-[18px]
+}
+@mixin text14-16 {
+  @apply text-[14px] md:text-[16px]
+}
+@mixin text12-16 {
+  @apply text-[12px] md:text-[14px] lg:text-[16px]
+}
+
+@mixin font-family($isDefaultFont:false) {
+  @if ($isDefaultFont) {
+    font-family: 'Inter', sans-serif;
+  } @else {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer base {
+  html {
+    background-color: #0e1014;
+  }
+  body {
+    @include font-family(true);
+    @apply text-light-text;
+    overflow-x: hidden;
+  }
+  #root {
+    @apply overflow-x-hidden
+  }
+  p {
+    @apply text-[14px] md:text-[16px]
+  }
+
+  .text44-48 {
+    @include text44-48;
+  }
+  .text36-48, h2 {
+    @include text36-48;
+  }
+  .text40 {
+    @include text40;
+  }
+  .text24 {
+    @include text24;
+  }
+  .text18 {
+    @include text18;
+  }
+  .text16-18 {
+    @include text16-18;
+  }
+  .text14-18 {
+    @include text14-18;
+  }
+  .text14-16 {
+    @include text14-16;
+  }
+  .text12-16 {
+    @include text12-16;
+  }
+  .montserrat {
+    @include font-family;
+  }
+  .orange-to-red-text {
+    background: linear-gradient(92deg, #FCB045 27.14%, #FF3F78 121.36%), #E4E5EA;;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .mt40-70 {
+    @apply mt-12 md:mt-14 lg:mt-[70px]
+  }
+}

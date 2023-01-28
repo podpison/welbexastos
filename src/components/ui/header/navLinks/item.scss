@@ -1,0 +1,7 @@
+.header__nav-link {
+  &:last-child {
+    @media (max-width: 870px) {
+      display: none;
+    }
+  }
+}
