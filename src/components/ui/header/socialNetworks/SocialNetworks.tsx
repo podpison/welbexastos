@@ -2,6 +2,7 @@ import telegram from '../../../../assets/imgs/social networks/telegram.svg';
 import viber from '../../../../assets/imgs/social networks/viber.svg';
 import whatsapp from '../../../../assets/imgs/social networks/whatsapp.svg';
 import { Item } from './Item';
+import './styles.scss';
 
 const items = [
   {

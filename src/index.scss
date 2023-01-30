@@ -53,6 +53,9 @@
   p {
     @apply text-[14px] md:text-[16px]
   }
+  *:focus {
+    outline: transparent;
+  }
 
   .text44-48 {
     @include text44-48;
@@ -90,7 +93,13 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .mt80-160 {
+    @apply mt-20 sm:mt-28 md:mt-36 lg:mt-40;
+  }
   .mt40-70 {
     @apply mt-12 md:mt-14 lg:mt-[70px]
+  }
+  .mt10-20 {
+    @apply mt-2.5 md:mt-5
   }
 }

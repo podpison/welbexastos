@@ -2,17 +2,21 @@ import cn from 'classnames';
 
 type Props = {
   children: React.ReactNode
+  onClick?: () => void
   className?: string
   isBlue?: boolean
+  paddings?: boolean
 }
 
-export const Button: React.FC<Props> = ({ children, className, isBlue = true }) => {
+export const Button: React.FC<Props> = ({ children, onClick, className, isBlue = true, paddings = true }) => {
   return <button
     className={cn(
-      "text12-16 w-fit py-5 px-4",
+      "w-fit transition-colors",
       className,
-      isBlue && 'bg-blue'
+      isBlue && 'bg-blue hover:bg-[#1d5ae7]',
+      paddings && 'py-5 px-4'
     )}
+    onClick={onClick}
   >
     {children}
   </button>

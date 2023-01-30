@@ -1,0 +1,5 @@
+.social-networks__item {
+  &:hover {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(55%) saturate(6048%) hue-rotate(211deg) brightness(102%) contrast(91%)
+  }
+}

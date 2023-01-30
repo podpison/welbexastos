@@ -15,5 +15,5 @@ export const Video: React.FC = () => {
     },
   };
 
-  return <YouTube className='w-full max-w-[560px] h-[calc(100%_-_80px)] mt-auto sm:col-[1] sm:row-[2] sm:h-full' videoId="JqSJaqySbKI" opts={opts} onReady={onPlayerReady} />;
+  return <YouTube className='w-full max-w-[560px] h-[calc(100%_-_70px)] mt-auto sm:col-[1] sm:row-[2] sm:h-full' videoId="JqSJaqySbKI" opts={opts} onReady={onPlayerReady} />;
 };

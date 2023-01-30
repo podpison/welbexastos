@@ -1,5 +1,5 @@
 import { List } from './../../ui/list/List';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './styles.scss';
 import { SectionName } from './SectionName';
 import { Light } from '../../ui/Light';
@@ -22,16 +22,24 @@ const sections = [
 export type WeSolveProblemsSectionType = typeof sections[0];
 export type WeSolveProblemsCurrentSectionType = 0 | 1 | 'all';
 
-
 export const WeSolveProblems: React.FC = () => {
-  const areSectionsBlocked = window.innerWidth > 768;
+  let areSectionsBlocked = window.innerWidth > 768;
   const [currentSection, setCurrentSection] = useState<WeSolveProblemsCurrentSectionType>(areSectionsBlocked ? 'all' : 0);
 
   const handleCurrentSection = (newSection: WeSolveProblemsCurrentSectionType) => {
     areSectionsBlocked ? setCurrentSection('all') : setCurrentSection(newSection);
   };
 
-  return <section className="mt-20 sm:mt-28 md:mt-36 lg:mt-40">
+  useEffect(() => {
+    const callback = () => {
+      window.innerWidth > 768 ? setCurrentSection('all') : setCurrentSection(0);
+    };
+
+    window.addEventListener('resize', callback);
+    return () => window.removeEventListener('resize', callback);
+  }, [])
+
+  return <section className="mt80-160">
     <div className='relative'>
       <Ball className='w-4 h-4 right-0 top-1/4 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-12 lg:h-12' color='yellow' />
       <h2>Мы решаем проблемы</h2>
@@ -47,7 +55,7 @@ export const WeSolveProblems: React.FC = () => {
       <Light className='bg-purple -right-[115px]' size={190} />
       <Light className='bg-dark-red -bottom-[50%] -left-[115px]' size={210} />
       <div className='grid grid-cols-2 gap-x-2 md:grid-cols-[37%_1fr] md:gap-x-[10%]'>
-        <SectionName currentSection={currentSection} id={0} name='Компания работает без AmoCRM' onClick={handleCurrentSection} />
+        <SectionName currentSection={currentSection} id={0} name='Вы работаете без AmoCRM' onClick={handleCurrentSection} />
         <SectionName currentSection={currentSection} id={1} name='AmoCRM не даёт результата' onClick={handleCurrentSection} />
       </div>
       <div className='mt-4 sm:mt-5 md:mt-7 md:grid md:grid-cols-[37%_1fr] md:gap-x-[10%]'>
