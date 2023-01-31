@@ -2,11 +2,13 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import "yup-phone";
 import cn from 'classnames';
-import { Button } from '../Button';
+import { Button } from './Button';
 
 export type PhoneFormType = {
   type: 'audit'
   buttonSign: string
+  additionData?: Object
+  className?: string
 }
 
 const initialValues = {
@@ -16,14 +18,14 @@ const validationSchema = Yup.object({
   phone: Yup.string().phone('ru', true, 'Введён некорректный номер телефона').required('Укажите номер телефона')
 });
 
-export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type }) => {
+export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionData = {}, className }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
+          alert(JSON.stringify({...values, additionData}, null, 2));
           setSubmitting(false);
         }, 400);
       }}
@@ -31,7 +33,7 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type }) => {
       {({ errors, touched }) => {
         let isError = Object.keys(errors).length !== 0;
 
-        return <Form className='flex flex-col max-sm:mt-5'>
+        return <Form className={cn('flex flex-col', className)}>
           <label className='text14-18 text-[#656566]' htmlFor="phone">Ваш номер телефона</label>
           <Field
             className={cn(`
@@ -46,10 +48,10 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type }) => {
             type="phone"
           />
           {errors.phone && touched.phone && <p className='text-red mt-2.5'>{errors.phone}</p>}
-          <div className='flex mt-5 max-md:flex-col sm:items-center md:gap-x-8 md:mt-7'>
+          <div className='flex mt-5 max-md:flex-col md:gap-x-8 md:mt-7 md:items-center'>
             <Button className='w-full text-base md:max-w-[260px]'>{buttonSign}</Button>
-            <p className='text-[12px] mt-2.5 md:mt-0 md:max-w-[290px]'>
-              Нажимая «{buttonSign.toLowerCase()}», я даю согласие на
+            <p className='text-[12px] mt-2.5 md:mt-0 max-w-[22em]'>
+              Нажимая «{buttonSign}», я даю согласие на
               <span className='underline ml-1'>обработку персональных данных</span>
             </p>
           </div>

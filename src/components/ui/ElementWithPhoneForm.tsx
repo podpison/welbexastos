@@ -1,6 +1,6 @@
 import { PhoneForm, PhoneFormType } from "./PhoneForm";
-import { Light } from './../Light';
-import { Ball } from './../ball/Ball';
+import { Light } from './Light';
+import { Ball } from './ball/Ball';
 
 type Props = {
   heading: string
@@ -26,7 +26,7 @@ export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, heading, o
         </p>
         <p className="montserrat mt10-20 text14-18 sm:max-w-[14em]">{additionText}</p>
       </div>
-      <PhoneForm buttonSign={buttonSign} type={type} />
+      <PhoneForm className='max-sm:mt-5' buttonSign={buttonSign} type={type} />
     </div>
   </section>
 };

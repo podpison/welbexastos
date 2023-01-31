@@ -1,4 +1,4 @@
-import { ElementWithPhoneForm } from "../ui/elementWithPhoneForm/ElementWithPhoneForm";
+import { ElementWithPhoneForm } from "../ui/ElementWithPhoneForm";
 
 export const FreeAudit: React.FC = () => {
   return <ElementWithPhoneForm

@@ -6,16 +6,15 @@ import dots from '../../assets/imgs/content/hero/dots.webp';
 import { Ball } from './ball/Ball';
 
 type Props = {
-  containerClassName?: string
   className?: string
 }
 
-export const Sphere: React.FC<Props> = ({ containerClassName, className }) => {
-  return <div className={cn('relative', containerClassName)}>
-    <Ball className="w-10 h-10 -mt-[8%] -right-[30px] sm:-mt-[180px] sm:w-12 sm:h-12 md:-mt-[40px] md:w-26 md:h-26 lg:w-20 lg:h-20" color="purple" />
-    <Ball className="w-4 h-4 mt-[325px] right-2 sm:mt-[130px] sm:w-6 sm:h-6 md:m-0 md:bottom-[10%] md:right-[10%] md:w-8 md:h-8" color="red" />
-    <Ball className="w-6 h-6 mt-[400px] max-sm:left-0 sm:right-1/4 sm:mt-[143px] sm:w-9 sm:h-9 sm:z-10 md:m-0 md:-left-[1%] md:-bottom-[20%] md:w-12 md:h-12" color="yellow" />
-    <img className={cn('', className)} src={sphere} alt='сфера' />
+export const Sphere: React.FC<Props> = ({ className }) => {
+  return <div className={cn(`absolute -z-30 max-w-[250px] h-fit`, className)}>
+    <Ball className="w-10 h-10 -top-[75%] -right-1/4 sm:w-12 sm:h-12 md:w-26 sm:-top-[30%] sm:-right-[5%] md:h-26 md:-top-[60px] lg:w-20 lg:h-20" color="purple" />
+    <Ball className="w-4 h-4 bottom-[10%] -right-[5%] sm:w-6 sm:h-6 md:w-8 md:h-8 md:right-0 md:-bottom-10" color="red" />
+    <Ball className="w-6 h-6 -bottom-1/4 -left-[10%] sm:w-9 sm:h-9 sm:z-10 md:w-12 md:h-12 md:-bottom-[150px] md:left-0" color="yellow" />
+    <img className={cn('', '')} src={sphere} alt='сфера' />
     {/* <img className='absolute -z-20' src={dots} alt='точки' /> */}
   </div>
 };

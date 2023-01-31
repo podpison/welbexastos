@@ -13,7 +13,7 @@ export const Button: React.FC<Props> = ({ children, onClick, className, isBlue =
     className={cn(
       "w-fit transition-colors",
       className,
-      isBlue && 'bg-blue hover:bg-[#1d5ae7]',
+      isBlue && 'bg-blue hover:bg-blue-hover',
       paddings && 'py-5 px-4'
     )}
     onClick={onClick}
