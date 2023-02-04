@@ -13,7 +13,6 @@ module.exports = {
         'light-text': '#E4E5EA',
         'black': '#0E1014',
         'blue': '#4077F3',
-        'blue-hover': '#1d5ae7',
         'dark-gray': '#656566',
         'light-stroke': '#25262C',
         'purple': '#833AB4',
@@ -26,6 +25,9 @@ module.exports = {
       },
       backgroundImage: {
         'orange-to-red': 'linear-gradient(90deg, #FCB045 36.99%, #FD1D1D 100%)'
+      },
+      boxShadow: {
+        'blue-shadow': '0px 0px 40px 6px rgba(64, 119, 243, 0.3)',
       },
     },
   },

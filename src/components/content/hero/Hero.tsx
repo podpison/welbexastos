@@ -6,7 +6,7 @@ import { Gifts } from "./Gifts";
 
 export const Hero: React.FC = () => {
   return <section className="relative flex flex-col gap-y-4 md:flex-row">
-    <Glass className='w-[120vw] h-[calc(100%_+_45px)] -left-4 -top-11 sm:w-[76%] md:w-[47%] lg:h-[calc(100%_+_100px)] lg:-top-24'>
+    <Glass className='w-[120vw] h-[200%] -left-4 -top-full sm:w-[76%] md:w-[47%] lg:h-[calc(100%_+_100px)] lg:-top-24'>
       <span className="hidden bg-orange-to-red w-px h-[calc(100%_+_50px)] sm:block max-lg:max-h-[395px]" />
     </Glass>
     <Light className="bg-purple -right-52 top-1/2 -translate-y-1/2" size={260} />

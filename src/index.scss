@@ -9,7 +9,7 @@
   @apply text-[36px] leading-tight sm:text-[40px] md:text-[44px] lg:text-[48px]
 }
 @mixin text40 {
-  @apply text-[46px] md:text-[48px] lg:text-[40px]
+  @apply text-[26px] md:text-[38px] lg:text-[40px]
 }
 @mixin text24 {
   @apply text-[18px] md:text-[20px] lg:text-[24px]
@@ -101,5 +101,9 @@
   }
   .mt10-20 {
     @apply mt-2.5 md:mt-5
+  }
+  .blur-bg {
+    background: linear-gradient(162.2deg, rgba(255, 246, 233, 0.1) -1.42%, rgba(26, 29, 35, 0.1) 25.01%, rgba(26, 29, 35, 0.1) 50.31%, rgba(26, 29, 35, 0.2) 75.65%, rgba(26, 29, 35, 0.2) 97.87%);
+    backdrop-filter: blur(7.5px);
   }
 }

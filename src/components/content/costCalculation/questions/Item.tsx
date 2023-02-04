@@ -1,6 +1,6 @@
 import { Button } from "../../../ui/Button";
-import { CostCalculationAnswerType, CostCalculationItemType } from "./Questions";
 import cn from 'classnames';
+import { CostCalculationAnswerType, CostCalculationItemType } from "../CostCalculation";
 
 type Props = {
   activeItems: CostCalculationAnswerType[]
@@ -17,11 +17,11 @@ export const Item: React.FC<Props> = ({ heading, answers, activeItems, answersCo
     return <Button
       className={cn(
         "px-2 py-1 border",
-        isActive ? 'border-transparent bg-blue-hover' : 'bg-black border-light-stroke hover:bg-blue',
+        isActive ? 'border-transparent' : 'bg-black border-light-stroke hover:bg-blue hover:shadow-blue-shadow',
       )}
       paddings={false}
       onClick={() => setActiveItems({ item: a, type })}
-      isBlue={false}
+      isBlue={isActive}
       key={index}
     >
       {a}

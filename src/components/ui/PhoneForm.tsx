@@ -9,6 +9,7 @@ export type PhoneFormType = {
   buttonSign: string
   additionData?: Object
   className?: string
+  onSuccess?: () => void
 }
 
 const initialValues = {
@@ -18,16 +19,16 @@ const validationSchema = Yup.object({
   phone: Yup.string().phone('ru', true, 'Введён некорректный номер телефона').required('Укажите номер телефона')
 });
 
-export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionData = {}, className }) => {
+export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionData = {}, className, onSuccess }) => {
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify({...values, additionData}, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        console.log(values, additionData)
+        setSubmitting(false);
+        resetForm()
+        onSuccess && onSuccess();
       }}
     >
       {({ errors, touched }) => {

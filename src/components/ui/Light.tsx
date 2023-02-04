@@ -12,7 +12,6 @@ export const Light: React.FC<Props> = ({ className, size, opacity = 50 }) => {
     style={{
       height: `${size}px`,
       width: `${size}px`,
-      opacity,
     }}
   >
 
