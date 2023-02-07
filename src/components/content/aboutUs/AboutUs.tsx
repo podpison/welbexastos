@@ -7,7 +7,8 @@ export const AboutUs: React.FC = () => {
     <h2>О нас</h2>
     <p className="text24 font-bold max-w-[18em] mt-10 sm:mt-12 md:mt-14 lg:mt-[70px]">
       <span className="orange-to-red-text">WelbeX — крупный интегратор AmoCRM </span>
-      в Росcии и ещё 8 странах</p>
+      в Росcии и ещё 8 странах
+    </p>
     <Facts />
   </section>
 };

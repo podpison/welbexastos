@@ -24,7 +24,8 @@ module.exports = {
         'mw': '1140px'
       },
       backgroundImage: {
-        'orange-to-red': 'linear-gradient(90deg, #FCB045 36.99%, #FD1D1D 100%)'
+        'orange-to-red': 'linear-gradient(90deg, #FCB045 36.99%, #FD1D1D 100%)',
+        'pink': 'linear-gradient(90deg, rgba(255, 216, 160, 0.5) -3.05%, rgba(253, 135, 135, 0.5) 52.27%, rgb(219, 166, 255) 100%)'
       },
       boxShadow: {
         'blue-shadow': '0px 0px 40px 6px rgba(64, 119, 243, 0.3)',

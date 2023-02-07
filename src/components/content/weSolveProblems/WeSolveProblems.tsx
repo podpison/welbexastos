@@ -43,7 +43,7 @@ export const WeSolveProblems: React.FC = () => {
     <div className='relative'>
       <Ball className='w-4 h-4 right-0 top-1/4 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-12 lg:h-12' color='yellow' />
       <h2>Мы решаем проблемы</h2>
-      <div className='relative mt40-70 flex max-sm:flex-col md:grid md:grid-cols-[42%_1fr] md:gap-x-[5%]'>
+      <div className='relative mt40-70 flex flex-wrap justify-between items-center md:grid md:grid-cols-[42%_1fr] md:gap-x-[5%]'>
         <Light className='bg-orange -right-[30px] md:-top-[400px]' size={200} />
         <p className="text24 max-w-[19em] font-bold">
           <span className="orange-to-red-text">99% компаний откладывают внедрение AmoCRM </span>

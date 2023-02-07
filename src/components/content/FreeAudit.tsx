@@ -7,5 +7,6 @@ export const FreeAudit: React.FC = () => {
     additionText="И получите предложение по решению вашей задачи."
     buttonSign="Заказать аудит"
     type="audit"
+
   />
 };

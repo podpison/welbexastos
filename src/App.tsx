@@ -7,6 +7,8 @@ import { ActionsAfterAudit } from './components/content/actionsAfterAudit/Action
 import { FreeAudit } from './components/content/FreeAudit';
 import { CostCalculation } from './components/content/costCalculation/CostCalculation';
 import { Services } from './components/content/services/Services';
+import { Widgets } from './components/content/widgets/Widgets';
+import { IndividualWidget } from './components/content/individualWidget/IndividualWidget';
 
 function App() {
   return <div className="relative container flex flex-col h-[1000vh] px-3.5 pt-5 max-w-[1168px]">
@@ -20,6 +22,8 @@ function App() {
       <FreeAudit />
       <CostCalculation />
       <Services />
+      <Widgets />
+      <IndividualWidget />
     </main>
   </div>
 }
