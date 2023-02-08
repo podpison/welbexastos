@@ -109,6 +109,9 @@
     background: linear-gradient(162.2deg, rgba(255, 246, 233, 0.1) -1.42%, rgba(26, 29, 35, 0.1) 25.01%, rgba(26, 29, 35, 0.1) 50.31%, rgba(26, 29, 35, 0.2) 75.65%, rgba(26, 29, 35, 0.2) 97.87%);
     backdrop-filter: blur(7.5px);
   }
+  .scroll-top {
+    @apply scroll-mt-24
+  }
 }
 
 /* width */

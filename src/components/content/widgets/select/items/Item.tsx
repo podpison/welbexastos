@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { WindgetType } from '../Widgets';
+import { WindgetType } from '../../Widgets';
 
 type Props = {
   isActive: boolean
@@ -20,6 +20,6 @@ export const Item: React.FC<Props> = ({ item, isActive, onClick, closeSelect }) 
     onClick={handleClick}
   >
     <img className={cn("w-5 h-5 transition-all", isActive && 'opacity-60')} src={item.img} />
-    <p className={cn("text16-18 transition-all ml-2.5 md:ml-5", isActive && 'text-dark-gray opacity-60')}>{item.name}</p>
+    <p className={cn("text16-18 transition-all ml-2.5 md:ml-5", !isActive && 'text-dark-gray opacity-60')}>{item.name}</p>
   </div>
 };
