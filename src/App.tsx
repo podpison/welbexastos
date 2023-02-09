@@ -8,10 +8,12 @@ import { FreeAudit } from './components/content/FreeAudit';
 import { CostCalculation } from './components/content/costCalculation/CostCalculation';
 import { Services } from './components/content/services/Services';
 import { Widgets } from './components/content/widgets/Widgets';
-import { IndividualWidget } from './components/content/individualWidget/IndividualWidget';
+import { IndividualWidget } from './components/content/IndividualWidget';
 import { ArrowUp } from './components/ui/ArrowUp';
 import { Integration } from './components/content/integration/Integration';
 import { OurClients } from './components/content/ourClients/OurClients';
+import { FreeDemonstration } from './components/content/FreeDemonstration';
+import { QandA } from './components/content/QandA/QandA';
 
 function App() {
   return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px] min-h-[3000vh]">
@@ -30,6 +32,8 @@ function App() {
       <IndividualWidget />
       <Integration />
       <OurClients />
+      <FreeDemonstration />
+      <QandA />
     </main>
   </div>
 }

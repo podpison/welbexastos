@@ -5,7 +5,7 @@ import cn from 'classnames';
 import { Button } from './Button';
 
 export type PhoneFormType = {
-  type: 'audit' | 'individualWidget'
+  type: 'audit' | 'individualWidget' | 'freeDemonstration'
   buttonSign: string
   additionData?: Object
   className?: string

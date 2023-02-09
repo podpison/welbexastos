@@ -2,15 +2,18 @@ import { PhoneForm, PhoneFormType } from "./PhoneForm";
 import { Light } from './Light';
 import { Ball } from './ball/Ball';
 import { Glass } from "./glass/Glass";
+import cn from 'classnames';
 
 type Props = {
   heading: string
   orangeText: string //orange text must be inside // like that /text/
+  orangeTextClassName: string
   additionText: string
+  additionTextClassName: string
   children?: React.ReactNode
 } & PhoneFormType
 
-export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, heading, orangeText, buttonSign, type, children }) => {
+export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, additionTextClassName, heading, orangeText, orangeTextClassName, buttonSign, type, children }) => {
   let orangeTextSplit = orangeText.substring(orangeText.indexOf("/") + 1, orangeText.lastIndexOf("/"));
   let otherText = orangeText.split('/').filter(i => i != orangeTextSplit && i !== '').join(' ');
 
@@ -26,14 +29,14 @@ export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, heading, o
       <Light className="bg-purple -bottom-[20%] -left-[20%] sm:left-0" size={150} />
       <Ball className="w-12 h-12 right-[10%] top-[12%] sm:w-14 sm:h-14 md:h-16 md:w-16 lg:h-18 lg:w-18 lg:w-20 lg:h-20" color="red" />
       <Ball className="w-10 h-10 top-[33%] -left-[30px]" color="purple" />
-      <div>
-        <p className="text24 font-medium flex flex-col sm:max-w-[12em]">
+      <div className="flex flex-wrap gap-y-2.5 gap-x-[10%] max-sm:items-center sm:flex-col">
+        <p className={cn("text24 font-medium", orangeTextClassName)}>
           {orangeText.startsWith('/' + orangeTextSplit)
             ? <><span className="orange-to-red-text"> {orangeTextSplit}</span> {otherText}</>
             : <>{otherText} <span className="orange-to-red-text"> {orangeTextSplit}</span></>
           }
         </p>
-        <p className="montserrat mt10-20 text14-18 sm:max-w-[14em]">{additionText}</p>
+        <p className={cn("montserrat text14-18", additionTextClassName)}>{additionText}</p>
       </div>
       <PhoneForm className='max-sm:mt-5' buttonSign={buttonSign} type={type} />
     </div>

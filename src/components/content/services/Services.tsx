@@ -64,9 +64,10 @@ const items = [
 export type ServicesItemType = typeof items[0];
 
 export const Services: React.FC = () => {
+  const [maxItemHeight, setMaxItemHeight] = useState(0);
   const [activeItemId, setActiveItemId] = useState<null | number>(null);
 
-  let Items = items.map(i => <Item {...i} isActive={activeItemId === i.id} setIsActive={setActiveItemId} key={i.id} />);
+  let Items = items.map(i => <Item {...i} maxItemHeight={maxItemHeight} setMaxItemHeight={setMaxItemHeight} isActive={activeItemId === i.id} setIsActive={setActiveItemId} key={i.id} />);
 
   return <section className="relative scroll-top services mt80-160 max-sm:mt-48" id='services'>
     <Light className="bg-purple -bottom-56 -right-[150px]" size={180} />

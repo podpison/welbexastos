@@ -5,6 +5,7 @@ import { WindgetType } from '../Widgets';
 import { Glass } from './../../../ui/glass/Glass';
 import './styles.scss';
 import { Items } from './items/Items';
+import { ChevronDown } from '../../../ui/ChevronDown';
 
 type Props = {
   items: WindgetType[]
@@ -15,7 +16,7 @@ type Props = {
 export const Select: React.FC<Props> = ({ currentItem, items, setCurrentItem }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleItemClick = () => window.innerWidth < 576 && setIsOpen(prev => !prev);
+  const handleItemClick = () => window.innerWidth < 640 && setIsOpen(prev => !prev);
 
   return <>
     <div
@@ -25,11 +26,7 @@ export const Select: React.FC<Props> = ({ currentItem, items, setCurrentItem }) 
       <div className='flex items-center py-4 px-5 sm:hidden'>
         <img className="w-5 h-5" src={currentItem.img} />
         <p className="text16-18 ml-2.5 md:ml-5">{currentItem.name}</p>
-        {/* chevron down icon by svgrepo.com */}
-        <svg
-          className={cn("transition-all duration-300 ml-auto group-hover:fill-dark-gray sm:hidden", isOpen && 'rotate-180 fill-dark-gray')}
-          fill="#ffffff" height="16px" width="16px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 407.44 407.44" xmlSpace="preserve" stroke="#ffffff" strokeWidth="20.371850000000002"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <polygon points="386.258,91.567 203.718,273.512 21.179,91.567 0,112.815 203.718,315.87 407.437,112.815 "></polygon> </g>
-        </svg>
+        <ChevronDown className="ml-auto sm:hidden" isOpen={isOpen} />
       </div>
       <Items
         className='max-h-[448px] max-sm:hidden md:max-h-[469px]'

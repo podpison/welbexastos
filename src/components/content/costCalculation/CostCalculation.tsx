@@ -93,12 +93,12 @@ export const CostCalculation: React.FC = () => {
     <Modal isActive={isModalActive} setIsActive={handleModalStatus} />
     <h2>Расчёт стоимости</h2>
     <div className="mt40-70 grid gap-y-5 sm:gap-x-[6%] sm:grid-cols-[31%_1fr] md:grid-cols-[36%_1fr] md:gap-x-[10%]">
-      <div className="">
-        <p className="text24 font-medium sm:max-w-[14em]">
+      <div className="flex flex-wrap items-center gap-y-2.5 gap-x-[10%]">
+        <p className="text24 font-medium max-w-[14em]">
           Ответьте на 4 вопроса и получите
           <span className="orange-to-red-text"> расчёт стоимости внедрения AmoCRM</span>
         </p>
-        <p className="montserrat text14-18 mt10-20">И сэкономьте 80% своего времени.</p>
+        <p className="montserrat text14-18 max-w-[13em]">И сэкономьте 80% своего времени.</p>
       </div>
       <div className="">
         <h5 className="text16-18 font-medium">При заказе с сайта вы получите 4 бонуса от компании:</h5>

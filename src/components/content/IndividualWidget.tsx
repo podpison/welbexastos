@@ -1,5 +1,5 @@
-import { ElementWithPhoneForm } from './../../ui/ElementWithPhoneForm';
-import { Ball } from './../../ui/ball/Ball';
+import { ElementWithPhoneForm } from '../ui/ElementWithPhoneForm';
+import { Ball } from '../ui/ball/Ball';
 
 export const IndividualWidget: React.FC = () => {
   return <div className='relative'>
@@ -7,7 +7,9 @@ export const IndividualWidget: React.FC = () => {
     <ElementWithPhoneForm
       heading='Индивидуальный виджет'
       orangeText='/Разработаем виджет индивидуально/ под ваши задачи'
+      orangeTextClassName='max-w-[13em]'
       additionText='Если вы не нашли подходящий из готовых вариантов.'
+      additionTextClassName='max-w-[13em]'
       buttonSign='Заказать виджет'
       type='individualWidget'
     />

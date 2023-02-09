@@ -15,6 +15,12 @@ import production from '../../../assets/imgs/content/ourClients/production.png';
 import financialServices from '../../../assets/imgs/content/ourClients/financialServices.png';
 import ITSphere from '../../../assets/imgs/content/ourClients/ITSphere.png';
 import { Item } from './Item';
+import { motion } from "framer-motion"
+import { useRef, useEffect, useState } from 'react';
+import cn from 'classnames';
+import './styles.scss';
+import { Ball } from './../../ui/ball/Ball';
+import { Light } from './../../ui/Light';
 
 const items = [
   {
@@ -86,19 +92,47 @@ const items = [
 export type OurClientsItemType = typeof items[0];
 
 export const OurClients: React.FC = () => {
+  const constraintsRef = useRef<HTMLDivElement>(null);
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+  let isDraggable = innerWidth < 500;
+
   const Items = items.map((i, index) => <Item {...i} key={index} />);
 
-  return <section className="mt80-160">
+  useEffect(() => {
+    const callback = () => {
+      setInnerWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', callback);
+    return () => window.addEventListener('resize', callback);
+  }, []);
+
+  return <section className="mt80-160 relative">
+    <Ball className='w-10 h-10 top-14 -left-6' color='purple' />
+    <Ball className='w-12 h-12 -bottom-[10%] left-[20%]' color='yellow' />
+    <Light className='bg-dark-red right-[30%] top-[5%] translate-x-[30%]' size={200} />
+    <Light className='bg-orange left-[30%] -bottom-20 -translate-x-[30%]' size={150} />
     <h2>Наши клиенты</h2>
-    <div className="mt40-70">
-      <p className="orange-to-red-text text24">
+    <div className="mt40-70 flex items-center gap-y-7 gap-x-5 max-sm:justify-between max-sm:flex-wrap sm:gap-x-[10%]">
+      <p className="text24 max-w-[18em]">
         Внедрили AmoCRM и увеличили продажи
-        <span>для клиентов в абсолютно разных нишах</span>
+        <span className='orange-to-red-text'> для клиентов в абсолютно разных нишах</span>
       </p>
-      <p className="text14-18">Для малого, среднего и крупного бизнеса с бюджетом до 3 миллионов рублей.</p>
+      <p className="text14-18 max-w-[17em]">Для малого, среднего и крупного бизнеса с бюджетом до 3 миллионов рублей.</p>
     </div>
-    <div>
-      {Items}
-    </div>
+    <motion.div ref={constraintsRef}>
+      <motion.div
+        className={cn('mt30-50 grid grid-cols-4 gap-5 min-w-[488px]', !isDraggable && 'our-clients-items')}
+        drag={isDraggable ? 'x' : undefined}
+        dragConstraints={isDraggable
+          ? {
+            left: innerWidth - 488 - 15,
+            right: 0,
+          }
+          : undefined}
+      >
+        {Items}
+      </motion.div>
+    </motion.div>
   </section>
 };
