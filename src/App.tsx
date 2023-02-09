@@ -10,9 +10,11 @@ import { Services } from './components/content/services/Services';
 import { Widgets } from './components/content/widgets/Widgets';
 import { IndividualWidget } from './components/content/individualWidget/IndividualWidget';
 import { ArrowUp } from './components/ui/ArrowUp';
+import { Integration } from './components/content/integration/Integration';
+import { OurClients } from './components/content/ourClients/OurClients';
 
 function App() {
-  return <div className="relative container flex flex-col h-[1000vh] px-3.5 pt-5 max-w-[1168px]">
+  return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px] min-h-[3000vh]">
     <ArrowUp />
     <Header />
     <main className='flex-1 mt-[120px] sm:mt-[78px] md:mt-[110px] lg:mt-32'>
@@ -26,6 +28,8 @@ function App() {
       <Services />
       <Widgets />
       <IndividualWidget />
+      <Integration />
+      <OurClients />
     </main>
   </div>
 }

@@ -20,6 +20,9 @@
 @mixin text16-18 {
   @apply text-[16px] md:text-[18px]
 }
+@mixin text14-22 {
+  @apply text-[14px] sm:text-[16px] md:text-[18px] lg:text-[22px]
+}
 @mixin text14-18 {
   @apply text-[14px] md:text-[16px] lg:text-[18px]
 }
@@ -75,6 +78,9 @@
   .text16-18 {
     @include text16-18;
   }
+  .text14-22 {
+    @include  text14-22;
+  }
   .text14-18 {
     @include text14-18;
   }
@@ -99,8 +105,14 @@
   .mt40-70 {
     @apply mt-12 md:mt-14 lg:mt-[70px]
   }
+  .mt30-50 {
+    @apply mt-7 sm:mt-8 md:mt-10 lg:mt-12 
+  }
   .mt20-50 {
     @apply mt-5 sm:mt-8 md:mt-10 lg:mt-12 
+  } 
+  .mt10-30 {
+    @apply mt-2.5 md:mt-5 lg:mt-7
   }
   .mt10-20 {
     @apply mt-2.5 md:mt-5
