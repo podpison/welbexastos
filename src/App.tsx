@@ -1,5 +1,5 @@
 import { AboutUs } from './components/content/aboutUs/AboutUs';
-import { Acquaintance } from './components/content/acquaintance/Acquaintance';
+import { Acquaintance } from './components/content/Acquaintance';
 import { Hero } from './components/content/hero/Hero';
 import { WeSolveProblems } from './components/content/weSolveProblems/WeSolveProblems';
 import { Header } from './components/ui/header/Header';
@@ -14,6 +14,7 @@ import { Integration } from './components/content/integration/Integration';
 import { OurClients } from './components/content/ourClients/OurClients';
 import { FreeDemonstration } from './components/content/FreeDemonstration';
 import { QandA } from './components/content/QandA/QandA';
+import { SolveCases } from './components/content/solveCases/SolveCases';
 
 function App() {
   return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px] min-h-[3000vh]">
@@ -34,6 +35,7 @@ function App() {
       <OurClients />
       <FreeDemonstration />
       <QandA />
+      <SolveCases />
     </main>
   </div>
 }

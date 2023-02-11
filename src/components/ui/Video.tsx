@@ -1,6 +1,12 @@
 import YouTube, { YouTubeProps } from 'react-youtube';
+import cn from 'classnames';
 
-export const Video: React.FC = () => {
+type Props = {
+  className: string
+  videoId: string
+}
+
+export const Video: React.FC<Props> = ({ className, videoId }) => {
   const onPlayerReady: YouTubeProps['onReady'] = (event) => {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
@@ -15,5 +21,5 @@ export const Video: React.FC = () => {
     },
   };
 
-  return <YouTube className='w-full max-w-[560px] h-[calc(100%_-_70px)] mt-auto sm:col-[1] sm:row-[2] sm:h-full' videoId="JqSJaqySbKI" opts={opts} onReady={onPlayerReady} />;
+  return <YouTube className={cn('w-full', className)} videoId={videoId} opts={opts} onReady={onPlayerReady} />;
 };

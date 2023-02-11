@@ -11,7 +11,7 @@ export const Category: React.FC<Props> = ({ category, items }) => {
 
   return <div>
     <h6 className="text14-22">{category}</h6>
-    <div className="mt10-30 flex gap-2.5 max-sm:flex-wrap sm:flex-col md:gap-5">
+    <div className="mt10-30 flex gap-2.5 max-sm:items-center max-sm:flex-wrap sm:flex-col md:gap-5">
       {Items}
     </div>
   </div>

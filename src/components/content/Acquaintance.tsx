@@ -1,7 +1,7 @@
-import founder from '../../../assets/imgs/content/acquaintance/founder.webp';
-import { Ball } from '../../ui/ball/Ball';
-import { Video } from './Video';
-import { Light } from './../../ui/Light';
+import founder from '../../assets/imgs/content/acquaintance/founder.webp';
+import { Light } from '../ui/Light';
+import { Ball } from './../ui/ball/Ball';
+import { Video } from './../ui/Video';
 
 export const Acquaintance: React.FC = () => {
   return <section className="mt-60">
@@ -16,7 +16,7 @@ export const Acquaintance: React.FC = () => {
         <img className='h-full sm:ml-auto' src={founder} alt='основатель' />
         <p className='text14-18 absolute top-5 w-full whitespace-nowrap max-sm:left-full sm:top-0 sm:-left-[60px] lg:left-auto lg:top-[30px]'>Михаил Доброхвалов<br />— основатель WelbeX</p>
       </div>
-      <Video />
+      <Video className='max-w-[560px] h-[calc(100%_-_70px)] mt-auto sm:col-[1] sm:row-[2] sm:h-full' videoId='JqSJaqySbKI' />
     </div>
   </section>
 };

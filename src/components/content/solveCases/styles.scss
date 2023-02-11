@@ -1,0 +1,9 @@
+.solve-cases__item {
+  border: 1px solid #25262C;
+  border-image: transparent;
+  background: linear-gradient(152.66deg, rgba(255, 246, 233, 0.1) -0.56%, rgba(26, 29, 35, 0.1) 30.32%, rgba(26, 29, 35, 0.1) 59.86%, rgba(26, 29, 35, 0.2) 89.45%, rgba(26, 29, 35, 0.2) 115.41%);
+  backdrop-filter: blur(7.5px);
+  &:hover {
+    border-image: linear-gradient(36.47deg, rgba(255, 216, 160, 0.5) 0.05%, rgba(253, 135, 135, 0.5) 65%, #DBA6FF 100.39%) 30;
+  }
+}

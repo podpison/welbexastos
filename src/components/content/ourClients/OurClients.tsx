@@ -15,12 +15,9 @@ import production from '../../../assets/imgs/content/ourClients/production.png';
 import financialServices from '../../../assets/imgs/content/ourClients/financialServices.png';
 import ITSphere from '../../../assets/imgs/content/ourClients/ITSphere.png';
 import { Item } from './Item';
-import { motion } from "framer-motion"
-import { useRef, useEffect, useState } from 'react';
-import cn from 'classnames';
-import './styles.scss';
 import { Ball } from './../../ui/ball/Ball';
 import { Light } from './../../ui/Light';
+import { DraggableItems } from '../../ui/draggableItems/DraggableItems';
 
 const items = [
   {
@@ -92,20 +89,7 @@ const items = [
 export type OurClientsItemType = typeof items[0];
 
 export const OurClients: React.FC = () => {
-  const constraintsRef = useRef<HTMLDivElement>(null);
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  let isDraggable = innerWidth < 500;
-
   const Items = items.map((i, index) => <Item {...i} key={index} />);
-
-  useEffect(() => {
-    const callback = () => {
-      setInnerWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', callback);
-    return () => window.addEventListener('resize', callback);
-  }, []);
 
   return <section className="mt80-160 relative">
     <Ball className='w-10 h-10 top-14 -left-6' color='purple' />
@@ -120,19 +104,8 @@ export const OurClients: React.FC = () => {
       </p>
       <p className="text14-18 max-w-[17em]">Для малого, среднего и крупного бизнеса с бюджетом до 3 миллионов рублей.</p>
     </div>
-    <motion.div ref={constraintsRef}>
-      <motion.div
-        className={cn('mt30-50 grid grid-cols-4 gap-5 min-w-[488px]', !isDraggable && 'our-clients-items')}
-        drag={isDraggable ? 'x' : undefined}
-        dragConstraints={isDraggable
-          ? {
-            left: innerWidth - 488 - 15,
-            right: 0,
-          }
-          : undefined}
-      >
-        {Items}
-      </motion.div>
-    </motion.div>
+    <DraggableItems minItemWidth={107}>
+      {Items}
+    </DraggableItems>
   </section>
 };

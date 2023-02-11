@@ -218,21 +218,14 @@ const categories = [
       },
     ]
   },
-  {
-    category: 'Онлайн-банкинг',
+    {
+    category: 'Бухгалтерия',
     items: [
       {
-        websiteLink: 'https://www.tinkoff.ru/',
+        websiteLink: 'https://1c.ru/',
         logo: {
-          default: tinkoff,
-          gray: tinkoffGray
-        }
-      },
-      {
-        websiteLink: 'https://yookassa.ru/',
-        logo: {
-          default: ukassa,
-          gray: ukassaGray
+          default: c1,
+          gray: c1Gray
         }
       },
     ]
@@ -276,13 +269,20 @@ const categories = [
     ]
   },
   {
-    category: 'Бухгалтерия',
+    category: 'Онлайн-банкинг',
     items: [
       {
-        websiteLink: 'https://1c.ru/',
+        websiteLink: 'https://www.tinkoff.ru/',
         logo: {
-          default: c1,
-          gray: c1Gray
+          default: tinkoff,
+          gray: tinkoffGray
+        }
+      },
+      {
+        websiteLink: 'https://yookassa.ru/',
+        logo: {
+          default: ukassa,
+          gray: ukassaGray
         }
       },
     ]
