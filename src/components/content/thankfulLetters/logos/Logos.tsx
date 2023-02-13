@@ -15,12 +15,12 @@ export const Logos: React.FC<Props> = ({ activeItemId, items, setActiveItemId })
   let Items = items.map((i, index) => <Item {...i} activeItemId={activeItemId} setActiveItemId={setActiveItemId} key={index} />);
 
   if (innerWidth >= 768) {
-    return <div className="grid grid-cols-3 gap-5 col-[2]">
+    return <div className="grid gap-5 grid-cols-3 lg:col-[2]">
       {Items}
     </div>
-  }
+  };
 
-  return <DraggableItems className="flex gap-5" minItemWidth={175} defaultStyles={false} itemsCount={9}>
+  return <DraggableItems className="flex gap-5 md:grid md:grid-cols-3" minItemWidth={175} defaultStyles={false} itemsCount={9}>
     {Items}
   </DraggableItems>
 };

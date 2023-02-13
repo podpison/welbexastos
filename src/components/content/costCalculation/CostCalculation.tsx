@@ -89,7 +89,7 @@ export const CostCalculation: React.FC = () => {
     setAnswers(defaultAnswers);
   };
 
-  return <section className="mt80-160 relative">
+  return <section className="mt80-160 relative" id='costCalculation'>
     <SuccessfulOrderModal isActive={isModalActive} setIsActive={handleModalStatus} />
     <h2>Расчёт стоимости</h2>
     <div className="mt40-70 grid gap-y-5 sm:gap-x-[6%] sm:grid-cols-[31%_1fr] md:grid-cols-[36%_1fr] md:gap-x-[10%]">

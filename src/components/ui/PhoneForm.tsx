@@ -5,11 +5,12 @@ import cn from 'classnames';
 import { Button } from './Button';
 
 export type PhoneFormType = {
-  type: 'audit' | 'individualWidget' | 'freeDemonstration'
+  type: 'audit' | 'individualWidget' | 'freeDemonstration' | 'freeAccessToTheSystem'
   buttonSign: string
   additionData?: Object
   className?: string
   onSuccess?: () => void
+  children?: React.ReactNode
 }
 
 const initialValues = {
@@ -19,7 +20,7 @@ const validationSchema = Yup.object({
   phone: Yup.string().phone('ru', true, 'Введён некорректный номер телефона').required('Укажите номер телефона')
 });
 
-export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionData = {}, className, onSuccess }) => {
+export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionData = {}, className, onSuccess, children }) => {
   return (
     <Formik
       initialValues={initialValues}
@@ -35,6 +36,7 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
         let isError = Object.keys(errors).length !== 0;
 
         return <Form className={cn('flex flex-col', className)}>
+          {children}
           <label className='text14-18 text-[#656566]' htmlFor="phone">Ваш номер телефона</label>
           <Field
             className={cn(`

@@ -49,7 +49,7 @@ export type SolveCasesItemType = typeof items[0];
 export const SolveCases: React.FC = () => {
   let Items = items.map(i => <Item {...i} key={i.id} />);
 
-  return <section className="mt80-160">
+  return <section className="mt80-160" id='cases'>
     <h2>Кейсы решений</h2>
     <div className='mt40-70 flex items-center gap-y-7 gap-x-5 max-sm:justify-between max-sm:flex-wrap sm:gap-x-[10%]'>
       <p className="text24 max-w-[18em]">

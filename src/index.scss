@@ -32,6 +32,9 @@
 @mixin text12-16 {
   @apply text-[12px] md:text-[14px] lg:text-[16px]
 }
+@mixin text12-14 {
+  @apply text-[12px] md:text-[14px]
+}
 
 @mixin font-family($isDefaultFont:false) {
   @if ($isDefaultFont) {
@@ -49,6 +52,9 @@
     @include font-family(true);
     @apply text-light-text;
     overflow-x: hidden;
+  }
+  section {
+    @apply scroll-mt-24
   }
   #root {
     @apply overflow-x-hidden
@@ -120,9 +126,6 @@
   .blur-bg {
     background: linear-gradient(162.2deg, rgba(255, 246, 233, 0.1) -1.42%, rgba(26, 29, 35, 0.1) 25.01%, rgba(26, 29, 35, 0.1) 50.31%, rgba(26, 29, 35, 0.2) 75.65%, rgba(26, 29, 35, 0.2) 97.87%);
     backdrop-filter: blur(7.5px);
-  }
-  .scroll-top {
-    @apply scroll-mt-24
   }
   .gradient-border-hover {
     border-image: transparent;

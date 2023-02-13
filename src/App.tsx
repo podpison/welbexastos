@@ -16,9 +16,11 @@ import { FreeDemonstration } from './components/content/FreeDemonstration';
 import { QandA } from './components/content/QandA/QandA';
 import { SolveCases } from './components/content/solveCases/SolveCases';
 import { ThankfulLetters } from './components/content/thankfulLetters/ThankfulLetters';
+import { FreeAccessToTheSystem } from './components/content/freeAccessToTheSystem/FreeAccessToTheSystem';
+import { Footer } from './components/ui/footer/Footer';
 
 function App() {
-  return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px] min-h-[3000vh]">
+  return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px]">
     <ArrowUp />
     <Header />
     <main className='flex-1 mt-[120px] sm:mt-[78px] md:mt-[110px] lg:mt-32'>
@@ -35,10 +37,12 @@ function App() {
       <Integration />
       <OurClients />
       <FreeDemonstration />
-      <QandA />
       <SolveCases />
       <ThankfulLetters />
+      <QandA />
+      <FreeAccessToTheSystem />
     </main>
+    <Footer />
   </div>
 }
 

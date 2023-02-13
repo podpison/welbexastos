@@ -1,8 +1,8 @@
 import { useScrollDirection } from '../../../hooks/useScrollDirection';
 import { Logo } from './Logo';
 import { NavLinks } from './navLinks/NavLinks';
-import { Phone } from './Phone';
-import { SocialNetworks } from './socialNetworks/SocialNetworks';
+import { Phone } from '../Phone';
+import { SocialNetworks } from '../socialNetworks/SocialNetworks';
 import cn from 'classnames';
 
 export const Header: React.FC = () => {
@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
     <div className='absolute -z-10 -left-full h-full w-[200vw] bg-black' />
     <Logo />
     <NavLinks />
-    <Phone />
-    <SocialNetworks />
+    <Phone className='hidden ml-auto md:block' />
+    <SocialNetworks className='ml-auto md:ml-6 lg:ml-12' />
   </header>
 };

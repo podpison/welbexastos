@@ -39,19 +39,18 @@ export const QandA: React.FC = () => {
   const [openItemId, setOpenItemId] = useState<null | number>(null);
 
   const handleItemClick = (newActiveItemId: number) => {
-    console.log(newActiveItemId, openItemId)
     newActiveItemId === openItemId ? setOpenItemId(null) : setOpenItemId(newActiveItemId)
   };
 
   const Items = items.map((i, index) => <Item {...i} isOpen={openItemId === i.id} onClick={handleItemClick} key={index} />);
   
-  return <section className="mt80-160 relative">
+  return <section className="mt80-160 relative" id='QAndA'>
     <Light className="bg-orange top-[211px] -translate-y-1/2 -left-8" size={190} />
     <Light className="bg-dark-red top-[211px] -translate-y-1/2 -right-8" size={190} />
     <Ball className="w-10 h-10 right-[10%] top-[105px]" color="red" />
     <Ball className="w-10 h-10 left-[10%] top-[50px] md:top-[63px]" color="yellow" />
     <div>
-      <h2>Вопрос/ответ</h2>
+      <h2>Вопрос / Ответ</h2>
       <div className="mt40-70 flex flex-wrap items-center gap-y-7 gap-x-4 max-sm:justify-between sm:gap-x-[20%]">
         <p className="text24 max-w-[13em]">
           Ответы на
@@ -60,7 +59,7 @@ export const QandA: React.FC = () => {
         <p className="text14-18 font-medium max-w-[17em]">Не нашли ответ на свой вопрос? Оставьте заявку на консультацию!</p>
       </div>
     </div>
-    <div className="mt20-50 max-w-[975px]">
+    <div className="mt20-50">
       {Items}
     </div>
   </section>

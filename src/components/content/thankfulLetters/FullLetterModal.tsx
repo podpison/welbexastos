@@ -1,5 +1,6 @@
 import { Modal } from './../../ui/Modal';
 import { ThankfulLetterItemType } from './ThankfulLetters';
+import { useResize } from './../../../hooks/useResize';
 
 type Props = {
   items: ThankfulLetterItemType[]
@@ -7,17 +8,25 @@ type Props = {
   setFullLetterId: React.Dispatch<React.SetStateAction<number | null>>
 }
 
-export const FullLetterId: React.FC<Props> = ({ items, fullLetterId, setFullLetterId }) => {
+export const FullLetterModal: React.FC<Props> = ({ items, fullLetterId, setFullLetterId }) => {
+  let windowWidth = useResize();
+
   let currentItem = items.find(i => i.id === fullLetterId);
-  
+  let isMobile = windowWidth < 640;
+
   const setIsActive = () => {
     setFullLetterId(null);
   };
 
-
-  return <Modal isActive={fullLetterId === null ? false : true} setIsActive={setIsActive}>
-    <h6>Благодарственное письмо</h6>
-    <p>{currentItem?.companyName}</p>
-    <p>{currentItem?.letter}</p>
+  return <Modal className='max-w-[1000px]' isActive={fullLetterId === null ? false : true} setIsActive={setIsActive}>
+    <h2>{isMobile ? 'Благодарность клиента' : 'Благодарственное письмо'}</h2>
+    <div className='mt10-20'>
+      <p className="text24 font-medium">
+        Компания
+        <span className="orange-to-red-text"> {currentItem?.companyName}</span>
+      </p>
+      <small className="text14-18 text-dark-gray mt-1.5 sm:mt-2.5">{currentItem?.owner}</small>
+    </div>
+    <p className='mt10-30 overflow-y-auto'>{currentItem?.letter}</p>
   </Modal>
 };

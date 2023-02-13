@@ -13,7 +13,7 @@ export const ItemContent: React.FC<Props> = ({ activeItemId, items, setFullLette
     setFullLetterId(currentItem?.id === undefined ? null : currentItem.id);
   };
 
-  return <div className="max-md:mt-5 md:row-[1]">
+  return <div className="mt-5 sm:mt-8 lg:mt-0 lg:row-[1]">
     <div>
       <p className="text24 font-medium">
         Компания

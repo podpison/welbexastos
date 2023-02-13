@@ -69,7 +69,7 @@ export const Services: React.FC = () => {
 
   let Items = items.map(i => <Item {...i} maxItemHeight={maxItemHeight} setMaxItemHeight={setMaxItemHeight} isActive={activeItemId === i.id} setIsActive={setActiveItemId} key={i.id} />);
 
-  return <section className="relative scroll-top services mt80-160 max-sm:mt-48" id='services'>
+  return <section className="relative services mt80-160 max-sm:mt-48" id='services'>
     <Light className="bg-purple -bottom-56 -right-[150px]" size={180} />
     <Light className="bg-red top-2/5 -left-[150px]" size={180} />
     <Ball className="w-12 h-12 right-[10%] top-[3%]" color="red" />
