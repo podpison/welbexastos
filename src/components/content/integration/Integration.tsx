@@ -41,8 +41,8 @@ import powerBIGray from '../../../assets/imgs/content/integration/powerBI-gray.p
 //Онлайн-банкинг
 import tinkoff from '../../../assets/imgs/content/integration/tinkoff.png';
 import tinkoffGray from '../../../assets/imgs/content/integration/tinkoff-gray.png';
-import ukassa from '../../../assets/imgs/content/integration/ukassa.png';
-import ukassaGray from '../../../assets/imgs/content/integration/ukassa-gray.png';
+import ukassa from '../../../assets/imgs/content/integration/uKassa.png';
+import ukassaGray from '../../../assets/imgs/content/integration/uKassa-gray.png';
 
 //sms рассылки
 import smsCenter from '../../../assets/imgs/content/integration/smsCenter.png';
