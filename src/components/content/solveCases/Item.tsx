@@ -1,4 +1,3 @@
-import { Video } from "../../ui/Video";
 import { SolveCasesItemType } from "./SolveCases";
 import cn from 'classnames';
 import { PlayIcon } from "./PlayIcon";
@@ -8,20 +7,19 @@ type Props = {
 
 } & SolveCasesItemType
 
-export const Item: React.FC<Props> = ({ description, heading, id, video }) => {
+export const Item: React.FC<Props> = ({ description, heading, id, video, videoPrivew }) => {
   let isItemInCenter = id === 1 || id === 2;
 
-  const handleClick = () => {
-
-  };
-
-  return <div
+  return <a
     className='
     solve-cases__item
     group relative flex flex-col py-5 px-3 transition-all
     md:first:row-[1/3] md:first:col-[1]
     md:last:row-[1/3] md:last:col-[3]
     '
+    href={`https://www.youtube.com/watch?v=${video}`}
+    target='_blank'
+    rel='noopener noreferrer'
   >
     <div>
       <h6 className="orange-to-red-text text-[36px]">{heading.heading}</h6>
@@ -36,7 +34,7 @@ export const Item: React.FC<Props> = ({ description, heading, id, video }) => {
           Видеоотзыв
         </p>
       </div>
-      <Video className={cn("mt10-20 h-24 md:mt-0", isItemInCenter && 'md:hidden')} videoId={video} />
+      <img className={cn("mt10-20 h-24 w-full object-contain md:mt-0", isItemInCenter && 'md:hidden')} src={videoPrivew} alt='превью' />
     </div>
-  </div>
+  </a>
 };

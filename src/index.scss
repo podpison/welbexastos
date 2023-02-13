@@ -124,6 +124,17 @@
   .scroll-top {
     @apply scroll-mt-24
   }
+  .gradient-border-hover {
+    border-image: transparent;
+    &:hover {
+      backdrop-filter: blur(7.5px);
+      border-image: linear-gradient(36.47deg, rgba(255, 216, 160, 0.5) 0.05%, rgba(253, 135, 135, 0.5) 65%, #DBA6FF 100.39%) 30;
+    }
+  }
+  .gradient-border {
+    backdrop-filter: blur(7.5px);
+    border-image: linear-gradient(36.47deg, rgba(255, 216, 160, 0.5) 0.05%, rgba(253, 135, 135, 0.5) 65%, #DBA6FF 100.39%) 30;
+  }
 }
 
 /* width */

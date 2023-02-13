@@ -3,6 +3,7 @@ import { Light } from './Light';
 import { Ball } from './ball/Ball';
 import { Glass } from "./glass/Glass";
 import cn from 'classnames';
+import { FullScreenGlass } from "./FullScreenGlass";
 
 type Props = {
   heading: string
@@ -17,12 +18,9 @@ export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, additionTe
   let orangeTextSplit = orangeText.substring(orangeText.indexOf("/") + 1, orangeText.lastIndexOf("/"));
   let otherText = orangeText.split('/').filter(i => i != orangeTextSplit && i !== '').join(' ');
 
-  return <section className="relative mt80-160 py-5 lg:py-12">
+  return <section className="relative mt80-160 py-5 md:py-8 lg:py-12">
     {children}
-    <Glass className="w-[200vw] h-full -left-[100vw] top-0">
-      <span className="block w-full h-px bg-pink" />
-      <span className="block w-full h-px absolute bottom-[1px] bg-pink" />
-    </Glass>
+    <FullScreenGlass />
     <h2>{heading}</h2>
     <div className="grid relative mt40-70 sm:grid-cols-[max-content_1fr] sm:gap-[10%] lg:gap-[19%]">
       <Light className="bg-dark-red -right-[20%] sm:right-0" size={200} />

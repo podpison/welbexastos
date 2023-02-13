@@ -15,6 +15,7 @@ import { OurClients } from './components/content/ourClients/OurClients';
 import { FreeDemonstration } from './components/content/FreeDemonstration';
 import { QandA } from './components/content/QandA/QandA';
 import { SolveCases } from './components/content/solveCases/SolveCases';
+import { ThankfulLetters } from './components/content/thankfulLetters/ThankfulLetters';
 
 function App() {
   return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px] min-h-[3000vh]">
@@ -36,6 +37,7 @@ function App() {
       <FreeDemonstration />
       <QandA />
       <SolveCases />
+      <ThankfulLetters />
     </main>
   </div>
 }

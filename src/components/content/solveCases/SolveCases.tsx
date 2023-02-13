@@ -9,6 +9,7 @@ const items = [
     },
     description: 'Компания по обслуживанию канализаций',
     video: 'rmKX608rVQ0',
+    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
     id: 0
   },
   {
@@ -18,6 +19,7 @@ const items = [
     },
     description: 'Компания по разработке индивидуального дизайна',
     video: 'pkNOp7mUW2g',
+    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
     id: 1
   },
     {
@@ -27,6 +29,7 @@ const items = [
     },
     description: 'Курьерская служба',
     video: '4HTD3aN6dEY',
+    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
     id: 2
   },
   {
@@ -36,6 +39,7 @@ const items = [
     },
     description: 'Создание системы мотивации сотрудников',
     video: 'pTMK62lPGXk',
+    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
     id: 3
   },
 ]

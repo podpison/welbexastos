@@ -1,9 +1,10 @@
 import { List } from './../../ui/list/List';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './styles.scss';
 import { SectionName } from './SectionName';
 import { Light } from '../../ui/Light';
 import { Ball } from './../../ui/ball/Ball';
+import { useResize } from '../../../hooks/useResize';
 
 const sections = [
   [
@@ -23,21 +24,13 @@ export type WeSolveProblemsSectionType = typeof sections[0];
 export type WeSolveProblemsCurrentSectionType = 0 | 1 | 'all';
 
 export const WeSolveProblems: React.FC = () => {
-  let areSectionsBlocked = window.innerWidth > 768;
+  let innerWidth = useResize((width) => width > 768 ? setCurrentSection('all') : setCurrentSection(0));
+  let areSectionsBlocked = innerWidth > 768;
   const [currentSection, setCurrentSection] = useState<WeSolveProblemsCurrentSectionType>(areSectionsBlocked ? 'all' : 0);
 
   const handleCurrentSection = (newSection: WeSolveProblemsCurrentSectionType) => {
     areSectionsBlocked ? setCurrentSection('all') : setCurrentSection(newSection);
   };
-
-  useEffect(() => {
-    const callback = () => {
-      window.innerWidth > 768 ? setCurrentSection('all') : setCurrentSection(0);
-    };
-
-    window.addEventListener('resize', callback);
-    return () => window.removeEventListener('resize', callback);
-  }, [])
 
   return <section className="mt80-160">
     <div className='relative'>

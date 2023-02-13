@@ -1,9 +1,10 @@
 type Props = {
   isActive: boolean
   setIsActive: () => void
+  children: React.ReactNode
 }
 
-export const Modal: React.FC<Props> = ({ isActive, setIsActive }) => {
+export const Modal: React.FC<Props> = ({ isActive, setIsActive, children }) => {
 
   if (!isActive) {
     return <></>
@@ -21,10 +22,9 @@ export const Modal: React.FC<Props> = ({ isActive, setIsActive }) => {
         width="24" height="24"
         viewBox="0,0,256,256"
       >
-        <g className='transition-all group-hover:fill-white' fill="#9a9a9a" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style={{ mixBlendMode: 'normal' }}><g transform="scale(5.12,5.12)"><path d="M7.71875,6.28125l-1.4375,1.4375l17.28125,17.28125l-17.28125,17.28125l1.4375,1.4375l17.28125,-17.28125l17.28125,17.28125l1.4375,-1.4375l-17.28125,-17.28125l17.28125,-17.28125l-1.4375,-1.4375l-17.28125,17.28125z"></path></g></g>
+        <g className='transition-all group-hover:fill-white' fill="#9a9a9a" fillRule="nonzero" stroke="none" strokeWidth="1" strokeLinecap="butt" strokeLinejoin="miter" strokeMiterlimit="10" strokeDasharray="" strokeDashoffset="0" fontFamily="none" fontWeight="none" fontSize="none" textAnchor="none" style={{ mixBlendMode: 'normal' }}><g transform="scale(5.12,5.12)"><path d="M7.71875,6.28125l-1.4375,1.4375l17.28125,17.28125l-17.28125,17.28125l1.4375,1.4375l17.28125,-17.28125l17.28125,17.28125l1.4375,-1.4375l-17.28125,-17.28125l17.28125,-17.28125l-1.4375,-1.4375l-17.28125,17.28125z"></path></g></g>
       </svg>
-      <h3 className='orange-to-red-text text40'>Спасибо за вашу заявку!</h3>
-      <p className="text16-18 mt-7">Наш менеджер свяжется с вами в ближайшее время и уточнит все детали.</p>
+      {children}
     </div>
   </div>
 };

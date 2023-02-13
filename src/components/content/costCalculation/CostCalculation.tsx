@@ -3,10 +3,10 @@ import { PhoneForm } from "../../ui/PhoneForm";
 import { Sphere } from "../../ui/Sphere";
 import { Questions } from "./questions/Questions";
 import { useState } from 'react';
-import { Modal } from './../../ui/Modal';
 import widgetImg from './../../../assets/imgs/content/costCalculation/widget.svg';
 import discountImg from './../../../assets/imgs/content/costCalculation/discount.svg';
 import { Light } from "../../ui/Light";
+import { SuccessfulOrderModal } from "./SuccessfulOrderModal";
 
 const listItems = [
   'Аудит с лучшим экспертом компании',
@@ -90,7 +90,7 @@ export const CostCalculation: React.FC = () => {
   };
 
   return <section className="mt80-160 relative">
-    <Modal isActive={isModalActive} setIsActive={handleModalStatus} />
+    <SuccessfulOrderModal isActive={isModalActive} setIsActive={handleModalStatus} />
     <h2>Расчёт стоимости</h2>
     <div className="mt40-70 grid gap-y-5 sm:gap-x-[6%] sm:grid-cols-[31%_1fr] md:grid-cols-[36%_1fr] md:gap-x-[10%]">
       <div className="flex flex-wrap items-center gap-y-2.5 gap-x-[10%]">
