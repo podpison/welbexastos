@@ -12,7 +12,7 @@ export const Acquaintance: React.FC = () => {
         от основателя компании</p>
       <div className='relative sm:col-[2] sm:row-[1/3]'>
         <Light className='bg-purple bottom-[20%] max-sm:-left-1/2 sm:-right-[30%]' size={150} />
-        <Ball className='w-5 h-5 top-1/4 max-sm:left-[5%] sm:right-[10%] sm:top-[40%]' color='purple' />
+        <Ball className='w-5 h-5 top-1/4 max-sm:-left-2 sm:-right-2.5 sm:top-[40%]' color='purple' />
         <img className='h-full sm:ml-auto' src={founder} alt='основатель' />
         <p className='text14-18 absolute top-5 w-full whitespace-nowrap max-sm:left-full sm:top-0 sm:-left-[60px] lg:left-auto lg:top-[30px]'>Михаил Доброхвалов<br />— основатель WelbeX</p>
       </div>

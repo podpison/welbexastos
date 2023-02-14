@@ -92,7 +92,7 @@ export const OurClients: React.FC = () => {
   const Items = items.map((i, index) => <Item {...i} key={index} />);
 
   return <section className="mt80-160 relative" id='ourClients'>
-    <Ball className='w-10 h-10 top-14 -left-6' color='purple' />
+    <Ball className='w-10 h-10 top-12 -left-5 sm:top-[52px] md:top-14 lg:top-[68px]' color='purple' />
     <Ball className='w-12 h-12 -bottom-[10%] left-[20%]' color='yellow' />
     <Light className='bg-dark-red right-[30%] top-[5%] translate-x-[30%]' size={200} />
     <Light className='bg-orange left-[30%] -bottom-20 -translate-x-[30%]' size={150} />

@@ -11,7 +11,7 @@ type Props = {
 export const Button: React.FC<Props> = ({ children, onClick, className, isBlue = true, paddings = true }) => {
   return <button
     className={cn(
-      "w-fit transition-all shadow-none",
+      "transition-all shadow-none",
       className,
       isBlue && 'bg-blue hover:shadow-blue-shadow',
       paddings && 'py-5 px-4'

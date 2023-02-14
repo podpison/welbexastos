@@ -34,7 +34,7 @@ export const WeSolveProblems: React.FC = () => {
 
   return <section className="mt80-160">
     <div className='relative'>
-      <Ball className='w-4 h-4 right-0 top-1/4 sm:w-7 sm:h-7 md:w-9 md:h-9 lg:w-12 lg:h-12' color='yellow' />
+      <Ball className='w-4 h-4 -right-[7px] top-1/4 sm:w-7 sm:h-7 sm:-right-[14px] md:w-9 md:h-9 md:-right-[18px] lg:w-12 lg:h-12 lg:-right-[24px]' color='yellow' />
       <h2>Мы решаем проблемы</h2>
       <div className='relative mt40-70 flex flex-wrap justify-between items-center md:grid md:grid-cols-[42%_1fr] md:gap-x-[5%]'>
         <Light className='bg-orange -right-[30px] md:-top-[400px]' size={200} />

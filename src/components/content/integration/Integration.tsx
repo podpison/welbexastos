@@ -296,7 +296,7 @@ export const Integration: React.FC = () => {
   let Categories = categories.map((i, index) => <Category {...i} key={index} />);
 
   return <section className="mt80-160 relative" id='integration'>
-    <Ball className='w-10 h-10 right-0 top-[15%]' color='yellow' />
+    <Ball className='w-10 h-10 -right-5 top-[15%]' color='yellow' />
     <Ball className='w-16 h-16 -bottom-20 right-1/4' color='red' />
     <Light className='bg-orange top-[15%] -right-16' size={200} />
     <Light className='bg-dark-red top-1/2 -translate-y-1/2 -left-12' size={200} />

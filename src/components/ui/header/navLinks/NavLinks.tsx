@@ -27,7 +27,7 @@ const navLinks = [
 export type HeaderNavLinkType = typeof navLinks[0]
 
 export const NavLinks: React.FC = () => {
-  let NavLinks = navLinks.map((nl, index) => <HashLink className="header__nav-link" {...nl} key={index} />);
+  let NavLinks = navLinks.map((nl, index) => <HashLink className="header__nav-link text12-16" {...nl} key={index} />);
 
   return <div className="flex gap-x-4 max-sm:justify-center max-sm:row-[2] max-sm:col-[1/3] sm:ml-7 sm:gap-x-6 md:ml-10 lg:gap-x-8 lg:ml-14">
     {NavLinks}

@@ -16,12 +16,12 @@ import { FreeDemonstration } from './components/content/FreeDemonstration';
 import { QandA } from './components/content/QandA/QandA';
 import { SolveCases } from './components/content/solveCases/SolveCases';
 import { ThankfulLetters } from './components/content/thankfulLetters/ThankfulLetters';
-import { FreeAccessToTheSystem } from './components/content/freeAccessToTheSystem/FreeAccessToTheSystem';
+import { FreeAccessToTheSystem } from './components/content/FreeAccessToTheSystem';
 import { Footer } from './components/ui/footer/Footer';
+import { GradientStrip } from './components/ui/GradientStrip';
 
 function App() {
   return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px]">
-    <ArrowUp />
     <Header />
     <main className='flex-1 mt-[120px] sm:mt-[78px] md:mt-[110px] lg:mt-32'>
       <Hero />
@@ -43,6 +43,11 @@ function App() {
       <FreeAccessToTheSystem />
     </main>
     <Footer />
+
+    <ArrowUp />
+    <GradientStrip className='right-3.5' />
+    <GradientStrip className='left-3.5' />
+    <GradientStrip className='left-1/2 max-sm:-translate-x-1/2 md:left-[45.4%] lg:left-[45.7%]' />
   </div>
 }
 

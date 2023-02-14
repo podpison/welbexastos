@@ -20,7 +20,9 @@ export const Item: React.FC<Props> = ({ spriteClassName, description, heading, i
   };
 
   useLayoutEffect(() => {
-    maxItemHeight === 0 && setMaxItemHeight(itemRef.current?.clientHeight || 0);
+    if (window.innerWidth > 640) {
+      maxItemHeight === 0 && setMaxItemHeight(itemRef.current?.clientHeight || 0);
+    }
 
     const callback = () => {
       if (!itemRef.current) return;
@@ -49,16 +51,16 @@ export const Item: React.FC<Props> = ({ spriteClassName, description, heading, i
       <h6 className='text16-18 text-white font-medium max-sm:pr-6 sm:group-hover:-mt-5 sm:h-[3em]'>{heading}</h6>
       <ChevronDown className="absolute right-4 top-5 sm:hidden" isOpen={isActive} />
     </div>
-    <div className={cn('mt10-20 flex flex-col h-full transition-all duration-300 sm:gap-y-5', isActive ? 'max-sm:mt10-20 max-sm:h-full' : 'max-sm:h-[0px] max-sm:opacity-0 max-sm:mt-0')}>
+    <div className={cn('mt10-20 flex flex-col h-full transition-all duration-300 sm:gap-y-5', isActive ? 'max-sm:mt10-20 max-sm:h-full' : 'max-sm:invisible max-sm:h-[0px] max-sm:opacity-0 max-sm:mt-0')}>
       <p className="h-full">{description}</p>
       <Button
-        className='
-        w-[calc(100%_+_32px)] -ml-4
-        max-sm:mt-5
-        sm:opacity-0 sm:h-[0px] sm:p-0 sm:mt-auto
-        sm:group-hover:opacity-100 sm:group-hover:h-fit sm:group-hover:py-5 sm:group-hover:px-4
-        md:w-[calc(100%_+_40px)] md:-ml-5
-        '
+        className={cn(
+        'w-[calc(100%_+_32px)] -ml-4\
+        max-sm:mt-5\
+        sm:opacity-0 sm:h-[0px] sm:p-0 sm:mt-auto\
+        sm:group-hover:opacity-100 sm:group-hover:h-fit sm:group-hover:py-5 sm:group-hover:px-4\
+        md:w-[calc(100%_+_40px)] md:-ml-5',
+        )}
       >
         Заказать
       </Button>

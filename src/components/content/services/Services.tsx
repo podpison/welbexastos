@@ -73,7 +73,7 @@ export const Services: React.FC = () => {
     <Light className="bg-purple -bottom-56 -right-[150px]" size={180} />
     <Light className="bg-red top-2/5 -left-[150px]" size={180} />
     <Ball className="w-12 h-12 right-[10%] top-[3%]" color="red" />
-    <Ball className="w-5 h-5 -bottom-10 left-[40%] -translate-x-[40%]" color="yellow" />
+    <Ball className="w-5 h-5 -bottom-10 left-1/2 max-sm:-translate-x-1/2 md:left-[44%] lg:left-[44.7%]" color="yellow" />
     <div>
       <h2>Услуги</h2>
       <div className="mt40-70 flex flex-wrap items-center gap-y-7 gap-x-4 max-sm:justify-between sm:gap-x-[20%]">

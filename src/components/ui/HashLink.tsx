@@ -14,7 +14,7 @@ export const HashLink: React.FC<Props> = ({ name, to, className }) => {
 
   return <a
     className={cn(
-      "text12-16 font-medium h-fit transition-colors hover:text-white",
+      "font-medium h-fit transition-colors hover:text-white",
       isActive && 'text-white',
       className
     )}

@@ -1,5 +1,6 @@
-import { List } from '../../ui/list/List';
-import { ElementWithPhoneForm } from './../../ui/ElementWithPhoneForm';
+import { List } from '../ui/list/List';
+import { ElementWithPhoneForm } from './../ui/ElementWithPhoneForm';
+import { Ball } from './../ui/ball/Ball';
 
 const phoneFormChildrenListItems = [
   'Аудит с лучшим экспертом компании',
@@ -25,5 +26,7 @@ export const FreeAccessToTheSystem: React.FC = () => {
         <List className='flex flex-col gap-y-2.5 mt-4 sm:mt-5 md:mt-7' items={phoneFormChildrenListItems} />
       </div>
     }
-  />
+  >
+    <Ball className='w-8 h-8 -bottom-4 -left-4 sm:-bottom-5 sm:-left-5 sm:w-11 sm:h-11' zIndex='z-10' color='yellow' />
+  </ElementWithPhoneForm>
 };

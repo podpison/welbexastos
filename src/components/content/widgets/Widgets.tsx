@@ -222,7 +222,7 @@ export const Widgets: React.FC = () => {
   const [currentItem, setCurrentItem] = useState<WindgetType>(items[0]);
 
   return <section className="mt80-160 relative" id='widgets'>
-    <Ball className='w-7 h-7 top-[15%] right-0' color='purple' />
+    <Ball className='w-7 h-7 top-[15%] -right-[14px]' color='purple' />
     <Light className='bg-dark-red top-1/2 -translate-y-1/2 -left-16' size={180} />
     <Light className='bg-orange bottom-0 -right-12' size={180} />
     <div>
