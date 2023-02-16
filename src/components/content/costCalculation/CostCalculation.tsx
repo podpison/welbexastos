@@ -6,7 +6,7 @@ import { useState } from 'react';
 import widgetImg from './../../../assets/imgs/content/costCalculation/widget.svg';
 import discountImg from './../../../assets/imgs/content/costCalculation/discount.svg';
 import { Light } from "../../ui/Light";
-import { SuccessfulOrderModal } from "./SuccessfulOrderModal";
+import { SuccessModal } from "../../ui/SuccessModal";
 
 const listItems = [
   'Аудит с лучшим экспертом компании',
@@ -90,7 +90,7 @@ export const CostCalculation: React.FC = () => {
   };
 
   return <section className="mt80-160 relative" id='costCalculation'>
-    <SuccessfulOrderModal isActive={isModalActive} setIsActive={handleModalStatus} />
+    <SuccessModal isActive={isModalActive} setIsActive={handleModalStatus} />
     <h2>Расчёт стоимости</h2>
     <div className="mt40-70 grid gap-y-5 sm:gap-x-[6%] sm:grid-cols-[31%_1fr] md:grid-cols-[36%_1fr] md:gap-x-[10%]">
       <div className="flex flex-wrap items-center gap-y-2.5 gap-x-[10%]">

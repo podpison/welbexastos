@@ -1,7 +1,10 @@
+import { useStaticItems } from "../../../hooks/useStaticItems";
 import { Light } from "../../ui/Light";
 import { Facts } from "./facts/Facts";
 
 export const AboutUs: React.FC = () => {
+  useStaticItems('aboutUs');
+
   return <section className="relative mt-20 sm:mt-24 md:mt-32 lg:mt-36">
     <Light className="bg-dark-red max-sm:-right-[40%] sm:-left-[10%]" size={250} />
     <h2>О нас</h2>

@@ -1,10 +1,10 @@
 import cn from 'classnames';
-import { WindgetType } from '../../Widgets';
+import { WidgetsItemType } from '../../../../../redux/reducers/static';
 
 type Props = {
   isActive: boolean
-  item: WindgetType
-  onClick: React.Dispatch<React.SetStateAction<WindgetType>>
+  item: WidgetsItemType
+  onClick: React.Dispatch<React.SetStateAction<WidgetsItemType>>
   closeSelect: () => void
 }
 

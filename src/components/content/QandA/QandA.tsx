@@ -2,40 +2,13 @@ import { useState } from "react";
 import { Item } from "./Item";
 import { Light } from './../../ui/Light';
 import { Ball } from "../../ui/ball/Ball";
-
-const items = [
-  {
-    question: 'Сколько стоит интеграция X с AmoCRM?',
-    id: 0,
-    answer: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit cupiditate at tempora. Saepe vitae at impedit provident numquam fugit libero? Itaque deserunt explicabo quae suscipit quam nihil sint veniam.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ut nemo nostrum saepe ratione reiciendis.',
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta aliquam commodi nobis delectus illo nihil iusto excepturi cum quas pariatur? Iure tenetur maiores, molestias blanditiis doloribus optio quisquam accusantium repudiandae id quia magni debitis illo tempore autem. Vel, doloribus a?',
-    ]
-  },
-  {
-    question: 'Требует ли AmoCRM обучения?',
-    id: 1,
-    answer: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit cupiditate at tempora. Saepe vitae at impedit provident numquam fugit libero? Itaque deserunt explicabo quae suscipit quam nihil sint veniam.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ut nemo nostrum saepe ratione reiciendis.',
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta aliquam commodi nobis delectus illo nihil iusto excepturi cum quas pariatur? Iure tenetur maiores, molestias blanditiis doloribus optio quisquam accusantium repudiandae id quia magni debitis illo tempore autem. Vel, doloribus a?',
-    ]
-  },
-  {
-    question: 'Чем занимается Ваша компания?',
-    id: 2,
-    answer: [
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem reprehenderit cupiditate at tempora. Saepe vitae at impedit provident numquam fugit libero? Itaque deserunt explicabo quae suscipit quam nihil sint veniam.',
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, ut nemo nostrum saepe ratione reiciendis.',
-      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta aliquam commodi nobis delectus illo nihil iusto excepturi cum quas pariatur? Iure tenetur maiores, molestias blanditiis doloribus optio quisquam accusantium repudiandae id quia magni debitis illo tempore autem. Vel, doloribus a?',
-    ]
-  },
-]
-
-export type QandAItemType = typeof items[0];
+import { useStaticItems } from './../../../hooks/useStaticItems';
+import { useSelector } from 'react-redux';
+import { selectQAndAItems } from "../../../redux/selectors";
 
 export const QandA: React.FC = () => {
+  useStaticItems('QAndA');
+  let items = useSelector(selectQAndAItems);
   const [openItemId, setOpenItemId] = useState<null | number>(null);
 
   const handleItemClick = (newActiveItemId: number) => {

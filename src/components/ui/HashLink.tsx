@@ -2,12 +2,13 @@ import cn from 'classnames';
 import { useLocation } from 'react-router-dom';
 
 type Props = {
-  name: string
   to: string
+  name?: string
+  children?: React.ReactNode
   className?: string
 }
 
-export const HashLink: React.FC<Props> = ({ name, to, className }) => {
+export const HashLink: React.FC<Props> = ({ name, to, children, className }) => {
   const { hash } = useLocation();
 
   let isActive = hash?.includes(to);
@@ -20,6 +21,6 @@ export const HashLink: React.FC<Props> = ({ name, to, className }) => {
     )}
     href={`#${to}`}
   >
-    {name}
+    {name || children}
   </a>
 };

@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { addDoc, collection, collection as fbCollection, getDocs, getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBCoyY-OhJUimJaucRJs4mpHiodcbTYBCU',
-  authDomain: 'ariestos-daa83.firebaseapp.com',
-  projectId: 'ariestos-daa83',
-  storageBucket: 'ariestos-daa83.appspot.com',
-  messagingSenderId: '444829018738',
-  appId: '1:444829018738:web:f6a767da32808ec27030eb',
-  measurementId: 'G-2ZKD8W2W7M'
+  apiKey: "AIzaSyBFBRnPFHDG0gGWgJhHeJ1-Q736Cv3gaHE",
+  authDomain: "welbexastos.firebaseapp.com",
+  projectId: "welbexastos",
+  storageBucket: "welbexastos.appspot.com",
+  messagingSenderId: "901477271345",
+  appId: "1:901477271345:web:d6847e472dca325bb79210",
+  measurementId: "G-SQGDQ26R55"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -25,5 +25,14 @@ export const customersAPI = {
   add: async (data: any[]) => {
     const docRef = await addDoc(collection(fs, "contactUs"), data);
     return !!docRef;
+  }
+}
+
+export const addAPI = {
+  add: async (collectionName: string, data: any[]) => {
+    for (let item of data) {
+      const docRef = await addDoc(collection(fs, collectionName), item);
+      console.log(docRef)
+    }
   }
 }

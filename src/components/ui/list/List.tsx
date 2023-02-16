@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const List: React.FC<Props> = ({ items, className }) => {
-  let Items = items.map((i, index) => <Item name={i} key={index} />);
+  let Items = items?.map((i, index) => <Item name={i} key={index} />);
 
   return <ul className={cn('', className)}>
     {Items}

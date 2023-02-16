@@ -50,8 +50,11 @@
   }
   body {
     @include font-family(true);
-    @apply text-light-text;
+    @apply text-light-text scroll-smooth;
     overflow-x: hidden;
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
   }
   section {
     @apply scroll-mt-24
@@ -142,9 +145,12 @@
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
   background: #656566;
   border-radius: 10px;
+  width: 5px;
+  @media (min-width: 640px) {
+    width: 10px;
+  }
 }
 
 /* Handle */

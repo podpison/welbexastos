@@ -1,16 +1,16 @@
 import { List } from '../../../ui/list/List';
 import { useState } from 'react';
 import cn from 'classnames';
-import { WindgetType } from '../Widgets';
 import { Glass } from './../../../ui/glass/Glass';
 import './styles.scss';
 import { Items } from './items/Items';
 import { ChevronDown } from '../../../ui/ChevronDown';
+import { WidgetsItemType } from '../../../../redux/reducers/static';
 
 type Props = {
-  items: WindgetType[]
-  currentItem: WindgetType
-  setCurrentItem: React.Dispatch<React.SetStateAction<WindgetType>>
+  items: WidgetsItemType[]
+  currentItem: WidgetsItemType
+  setCurrentItem: React.Dispatch<React.SetStateAction<WidgetsItemType>>
 }
 
 export const Select: React.FC<Props> = ({ currentItem, items, setCurrentItem }) => {
@@ -24,8 +24,8 @@ export const Select: React.FC<Props> = ({ currentItem, items, setCurrentItem }) 
       onClick={handleItemClick}
     >
       <div className='flex items-center py-4 px-5 sm:hidden'>
-        <img className="w-5 h-5" src={currentItem.img} />
-        <p className="text16-18 ml-2.5 md:ml-5">{currentItem.name}</p>
+        <img className="w-5 h-5" src={currentItem?.img} />
+        <p className="text16-18 ml-2.5 md:ml-5">{currentItem?.name}</p>
         <ChevronDown className="ml-auto sm:hidden" isOpen={isOpen} />
       </div>
       <Items
@@ -40,7 +40,7 @@ export const Select: React.FC<Props> = ({ currentItem, items, setCurrentItem }) 
       <Glass className='w-full h-full left-0 top-0 sm:hidden' style={{ background: 'linear-gradient(152.66deg, rgba(26, 29, 35, 0.1) -0.56%, rgba(26, 29, 35, 0.1) 30.32%, rgba(26, 29, 35, 0.1) 59.86%, rgba(26, 29, 35, 0.2) 89.45%, rgba(26, 29, 35, 0.2) 115.41%)' }} />
       <div className='relative'>
         <h6>Основные возможности:</h6>
-        <List className='flex flex-col gap-y-2.5 mt-4 lg:grid lg:grid-cols-2 md:mt-5 md:gap-y-4 md:gap-x-8' items={currentItem.possibilities} />
+        <List className='flex flex-col gap-y-2.5 mt-4 lg:grid lg:grid-cols-2 md:mt-5 md:gap-y-4 md:gap-x-8' items={currentItem?.possibilities} />
       </div>
       <Items
         className={cn('absolute top-0 -left-[1px] w-[calc(100%_+_2px)] max-h-[392px] sm:hidden', isOpen ? '' : 'hidden')}

@@ -5,25 +5,15 @@ import { SectionName } from './SectionName';
 import { Light } from '../../ui/Light';
 import { Ball } from './../../ui/ball/Ball';
 import { useResize } from '../../../hooks/useResize';
+import { useSelector } from 'react-redux';
+import { selectWeSolveProblemItems } from '../../../redux/selectors';
+import { useStaticItems } from './../../../hooks/useStaticItems';
 
-const sections = [
-  [
-    'Нет времени на самостоятельное изучение и внедрение CRM системы.',
-    'Отсутствие понимания для чего надо внедрять CRM систему. Какую пользу это принесёт бизнесу.',
-    'Страх, что вложенные средства не окупятся.',
-  ],
-  [
-    'Работа отдела продаж не является системной. Отдел является чёрным ящиком, работу которого нельзя спрогнозировать.',
-    'Информация о клиентах хранится лично у менеджеров, что тормозит проект, если сотрудник не на месте. Также это даёт возможность увести клиентов из компании.',
-    'Невозможно определить, какие сделки являются самыми прибыльными для компании, а какие не приносят результата.',
-    'Сложно оценить эффективность работы отдельного сотрудника.',
-  ],
-]
-
-export type WeSolveProblemsSectionType = typeof sections[0];
 export type WeSolveProblemsCurrentSectionType = 0 | 1 | 'all';
 
 export const WeSolveProblems: React.FC = () => {
+  useStaticItems('weSolveProblems');
+  let items = useSelector(selectWeSolveProblemItems);
   let innerWidth = useResize((width) => width > 768 ? setCurrentSection('all') : setCurrentSection(0));
   let areSectionsBlocked = innerWidth > 768;
   const [currentSection, setCurrentSection] = useState<WeSolveProblemsCurrentSectionType>(areSectionsBlocked ? 'all' : 0);
@@ -48,12 +38,12 @@ export const WeSolveProblems: React.FC = () => {
       <Light className='bg-purple -right-[115px]' size={190} />
       <Light className='bg-dark-red -bottom-[50%] -left-[115px]' size={210} />
       <div className='grid grid-cols-2 gap-x-2 md:grid-cols-[37%_1fr] md:gap-x-[10%]'>
-        <SectionName currentSection={currentSection} id={0} name='Вы работаете без AmoCRM' onClick={handleCurrentSection} />
-        <SectionName currentSection={currentSection} id={1} name='AmoCRM не даёт результата' onClick={handleCurrentSection} />
+        <SectionName currentSection={currentSection} id={0} name={items[0]?.category} onClick={handleCurrentSection} />
+        <SectionName currentSection={currentSection} id={1} name={items[1]?.category} onClick={handleCurrentSection} />
       </div>
       <div className='mt-4 sm:mt-5 md:mt-7 md:grid md:grid-cols-[37%_1fr] md:gap-x-[10%]'>
-        {currentSection !== 0 && <List className='flex flex-col gap-2.5 sm:gap-5 md:col-[2]' items={sections[1]} />}
-        {currentSection !== 1 && <List className='flex flex-col gap-2.5 sm:gap-5 md:col-[1] md:row-[1]' items={sections[0]} />}
+        {currentSection !== 0 && <List className='flex flex-col gap-2.5 sm:gap-5 md:col-[2]' items={items[1]?.items} />}
+        {currentSection !== 1 && <List className='flex flex-col gap-2.5 sm:gap-5 md:col-[1] md:row-[1]' items={items[0]?.items} />}
       </div>
     </div>
   </section>

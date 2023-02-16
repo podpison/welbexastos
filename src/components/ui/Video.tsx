@@ -15,11 +15,7 @@ export const Video: React.FC<Props> = ({ className, videoId }) => {
   const opts: YouTubeProps['opts'] = {
     height: '100%',
     width: '100%',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
   };
 
-  return <YouTube className={cn('w-full', className)} videoId={videoId} opts={opts} onReady={onPlayerReady} />;
+  return <YouTube className={cn('w-full', className)} videoId={videoId} opts={opts} />;
 };

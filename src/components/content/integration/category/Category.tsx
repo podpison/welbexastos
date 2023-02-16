@@ -1,10 +1,10 @@
-import { IntegrationCategoryType } from "../Integration";
+import { IntegrationItemType } from "../../../../redux/reducers/static";
 import { Item } from "./Item";
 import './styles.scss';
 
 type Props = {
 
-} & IntegrationCategoryType
+} & IntegrationItemType
 
 export const Category: React.FC<Props> = ({ category, items }) => {
   let Items = items.map((i, index) => <Item {...i} key={index} />);

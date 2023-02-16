@@ -9,5 +9,6 @@ export const FreeAudit: React.FC = () => {
     additionTextClassName="max-w-[14em]"
     buttonSign="Заказать аудит"
     type="audit"
+    id='freeAudit'
   />
 };

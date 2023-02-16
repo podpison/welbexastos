@@ -17,7 +17,7 @@ export const Modal: React.FC<Props> = ({ isActive, setIsActive, children, classN
     className="fixed top-0 left-0 z-30 h-screen w-screen flex items-center justify-center"
   >
     <div className="absolute top-0 left-0 w-screen h-screen bg-black/80" onClick={setIsActive} />
-    <div className={cn("relative flex flex-col z-40 w-[92%] max-h-[65vh] bg-[#15171c] py-4 px-2 sm:py-6 sm:px-4 md:px-8 md:py-6", className)}>
+    <div className={cn("relative flex flex-col z-40 w-[92%] h-fit max-h-[65vh] bg-[#15171c] py-4 px-2 sm:py-6 sm:px-4 md:px-8 md:py-6", className)}>
       <svg className='group absolute cursor-pointer right-0 -top-10 sm:-right-6' //icon by icons8
         onClick={setIsActive}
         xmlns="http://www.w3.org/2000/svg"

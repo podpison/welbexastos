@@ -1,5 +1,5 @@
 import { List } from '../ui/list/List';
-import { ElementWithPhoneForm } from './../ui/ElementWithPhoneForm';
+import { ElementWithPhoneForm } from '../ui/ElementWithPhoneForm';
 import { Ball } from './../ui/ball/Ball';
 
 const phoneFormChildrenListItems = [

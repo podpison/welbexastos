@@ -1,6 +1,7 @@
 import { HashLink } from "../HashLink";
 import { FooterAnotherPageItemType, FooterBlockType, FooterHashLinkItemType } from "./Footer";
 import cn from 'classnames';
+import React from 'react';
 
 const anotherWebsiteTypeGuard = (item: FooterAnotherPageItemType | FooterHashLinkItemType | JSX.Element): item is FooterAnotherPageItemType => {
   return (item as FooterAnotherPageItemType).isAnotherWebsite !== undefined;
@@ -24,9 +25,9 @@ export const Block: React.FC<Props> = ({ heading, items, className, itemsClassNa
     };
 
     if (footerHashLinkGuardian(i)) {
-      return <HashLink className={classNames} {...i} />
+      return <HashLink className={classNames} {...i} key={index} />
     } else {
-      return i;
+      return <React.Fragment key={index}>{i}</React.Fragment>;
     };
   });
 

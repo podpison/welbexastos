@@ -1,8 +1,8 @@
-import { IntegrationCategoryItemType } from "../Integration";
+import { IntegrationItemItemType } from "../../../../redux/reducers/static";
 
 type Props = {
 
-} & IntegrationCategoryItemType
+} & IntegrationItemItemType
 
 export const Item: React.FC<Props> = ({ logo, websiteLink }) => {
   return <a className='relative group w-fit' href={websiteLink}>

@@ -1,53 +1,14 @@
 import { DraggableItems } from "../../ui/draggableItems/DraggableItems";
 import { Item } from "./Item";
-
-const items = [
-  {
-    heading: {
-      heading: '+50%',
-      description: 'Успешно закрытых сделок'
-    },
-    description: 'Компания по обслуживанию канализаций',
-    video: 'rmKX608rVQ0',
-    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
-    id: 0
-  },
-  {
-    heading: {
-      heading: '+30%',
-      description: 'Скорость завершения сделок'
-    },
-    description: 'Компания по разработке индивидуального дизайна',
-    video: 'pkNOp7mUW2g',
-    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
-    id: 1
-  },
-    {
-    heading: {
-      heading: 'В 5 раз',
-      description: 'Увеличили скорость работы логиста'
-    },
-    description: 'Курьерская служба',
-    video: '4HTD3aN6dEY',
-    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
-    id: 2
-  },
-  {
-    heading: {
-      heading: '+70%',
-      description: 'KPI сотрудников'
-    },
-    description: 'Создание системы мотивации сотрудников',
-    video: 'pTMK62lPGXk',
-    videoPrivew: 'https://i.postimg.cc/gj1cHtBh/image.png',
-    id: 3
-  },
-]
-
-export type SolveCasesItemType = typeof items[0];
+import { useStaticItems } from './../../../hooks/useStaticItems';
+import { useSelector } from 'react-redux';
+import { selectSolveCaseItems } from "../../../redux/selectors";
 
 export const SolveCases: React.FC = () => {
-  let Items = items.map(i => <Item {...i} key={i.id} />);
+  useStaticItems('solveCases');
+  let items = useSelector(selectSolveCaseItems);
+
+  let Items = items.map((i, index, arr) => <Item {...i} isFirst={index === 0} isLast={index === arr.length - 1} key={i.id} />);
 
   return <section className="mt80-160" id='cases'>
     <h2>Кейсы решений</h2>

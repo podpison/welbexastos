@@ -15,6 +15,6 @@ export const Sphere: React.FC<Props> = ({ className }) => {
     <Ball className="w-4 h-4 bottom-[10%] -right-[5%] sm:w-6 sm:h-6 md:w-8 md:h-8 md:right-0 md:-bottom-10" color="red" />
     <Ball className="w-6 h-6 -bottom-1/4 -left-[10%] sm:w-9 sm:h-9 sm:z-10 md:w-12 md:h-12 md:-bottom-[150px] md:left-0" color="yellow" />
     <img className={cn('', '')} src={sphere} alt='сфера' />
-    <img className='absolute -z-20 top-0 min-w-[120%] -left-[10%]' src={dots} alt='точки' />
+    <img className='absolute -left-[10%] -top-[15%] -z-20 min-w-[120%] h-[150%]' src={dots} alt='точки' />
   </div>
 };

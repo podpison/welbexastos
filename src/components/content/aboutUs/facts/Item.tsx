@@ -1,8 +1,8 @@
-import { AbousUsFactType } from "./Facts";
+import { AbousUsItemType } from "./../../../../redux/reducers/static";
 
 type Props = {
   
-} & AbousUsFactType
+} & AbousUsItemType
 
 export const Item: React.FC<Props> = ({ description, heading }) => {
   return <div className="max-w-[8em] last:max-w-[14em] max-sm:last:col-[1/3]">

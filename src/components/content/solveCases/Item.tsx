@@ -1,14 +1,15 @@
-import { SolveCasesItemType } from "./SolveCases";
 import cn from 'classnames';
+import { SolveCasesItemType } from '../../../redux/reducers/static';
 import { PlayIcon } from "./PlayIcon";
 import './styles.scss';
 
 type Props = {
-
+  isFirst: boolean
+  isLast: boolean
 } & SolveCasesItemType
 
-export const Item: React.FC<Props> = ({ description, heading, id, video, videoPrivew }) => {
-  let isItemInCenter = id === 1 || id === 2;
+export const Item: React.FC<Props> = ({ description, heading, id, video, videoPrivew, isFirst, isLast }) => {
+  let isItemInCenter = !isFirst && !isLast;
 
   return <a
     className='
@@ -26,8 +27,8 @@ export const Item: React.FC<Props> = ({ description, heading, id, video, videoPr
       <p className="mt-2.5 max-w-[10em]">{heading.description}</p>
     </div>
     <p className={cn("mt20-50 mb-2.5 max-w-[13em] md:mb-5", isItemInCenter ? 'md:mb-0' : 'lg:mb-7')}>{description}</p>
-    <div className={cn("mt-auto flex flex-col md:flex-row-reverse md:gap-x-5")}>
-      <div className='flex flex-col gap-y-2.5'>
+    <div className={cn("mt-auto grid grid-cols-1 md:grid-cols-[1fr_max-content] md:gap-x-5")}>
+      <div className='flex flex-col gap-y-2.5 md:col-[2] md:row-[1]'>
         <PlayIcon isItemInCenter={isItemInCenter} />
         <p className={cn("max-md:text-dark-gray md:flex md:flex-col", isItemInCenter && 'md:hidden')}>
           <span className="max-md:hidden">Смотреть </span>

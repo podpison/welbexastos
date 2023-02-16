@@ -1,5 +1,5 @@
+import { OurClientsItemType } from "../../../redux/reducers/static";
 import { IconWithGrayBg } from "../../ui/iconWithGrayBg/IconWithGrayBg";
-import { OurClientsItemType } from "./OurClients";
 
 type Props = {
   

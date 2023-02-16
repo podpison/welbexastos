@@ -3,6 +3,8 @@ import { Light } from './Light';
 import { Ball } from './ball/Ball';
 import cn from 'classnames';
 import { FullScreenGlass } from "./FullScreenGlass";
+import { SuccessModal } from "./SuccessModal";
+import { useState } from 'react';
 
 type Props = {
   heading: string
@@ -10,20 +12,25 @@ type Props = {
   orangeTextClassName: string
   additionText: string | string[]
   additionTextClassName: string
+  id?: string
   children?: React.ReactNode
   phoneFormChildren?: React.ReactNode
 } & PhoneFormType
 
-export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, additionTextClassName, heading, orangeText, orangeTextClassName, buttonSign, type, children, phoneFormChildren }) => {
+export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, additionTextClassName, heading, orangeText, orangeTextClassName, buttonSign, type, id, children, phoneFormChildren }) => {
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const handleIsSuccessModalStatus = () => setIsSuccessModalOpen(prev => !prev);
+
   let orangeTextSplit = orangeText.substring(orangeText.indexOf("/") + 1, orangeText.lastIndexOf("/"));
   let otherText = orangeText.split('/').filter(i => i != orangeTextSplit && i !== '').join(' ');
 
   let additionTextData = typeof additionText === 'string' ? [additionText] : additionText;
   let AdditionTexts = additionTextData.map((i, index) => <p className={cn("montserrat text14-18", additionTextClassName)} key={index}>{i}</p>);
 
-  return <section className="relative mt80-160 py-5 md:py-8 lg:py-12">
+  return <section className="relative mt80-160 py-5 md:py-8 lg:py-12" id={id}>
     {children}
     <FullScreenGlass />
+    <SuccessModal isActive={isSuccessModalOpen} setIsActive={handleIsSuccessModalStatus} />
     <h2>{heading}</h2>
     <div className="grid relative mt40-70 sm:grid-cols-[max-content_1fr] sm:gap-[10%] lg:gap-[19%]">
       <Light className="bg-dark-red -right-[20%] sm:right-0" size={200} />
@@ -41,7 +48,7 @@ export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, additionTe
           {AdditionTexts}
         </div>
       </div>
-      <PhoneForm className='max-sm:mt-5' buttonSign={buttonSign} type={type} children={phoneFormChildren} />
+      <PhoneForm className='max-sm:mt-5' onSuccess={handleIsSuccessModalStatus} buttonSign={buttonSign} type={type} children={phoneFormChildren} />
     </div>
   </section>
 };
