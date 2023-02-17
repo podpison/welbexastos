@@ -1,9 +1,9 @@
 import { Modal } from './../../ui/Modal';
-import { ThankfulLetterItemType } from './ThankfulLetters';
 import { useResize } from './../../../hooks/useResize';
+import { ThankfulLettersItemType } from '../../../redux/reducers/static';
 
 type Props = {
-  items: ThankfulLetterItemType[]
+  items: ThankfulLettersItemType[]
   fullLetterId: number | null
   setFullLetterId: React.Dispatch<React.SetStateAction<number | null>>
 }

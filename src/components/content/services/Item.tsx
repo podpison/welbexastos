@@ -1,9 +1,9 @@
-import { ServicesItemType } from "./Services";
 import { IconWithGrayBg } from './../../ui/iconWithGrayBg/IconWithGrayBg';
 import cn from 'classnames';
 import { Button } from "../../ui/Button";
 import { useLayoutEffect, useRef } from "react";
 import { ChevronDown } from "../../ui/ChevronDown";
+import { ServicesItemType } from '../../../redux/reducers/static';
 
 type Props = {
   isActive: boolean

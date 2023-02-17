@@ -1,12 +1,12 @@
 import { List } from "../../ui/list/List";
-import { QandAItemType } from "./QandA";
 import cn from 'classnames';
 import { ChevronDown } from "../../ui/ChevronDown";
+import { QAndAItemType } from "../../../redux/reducers/static";
 
 type Props = {
   isOpen: boolean
   onClick: (newActiveItemId: number) => void
-} & QandAItemType
+} & QAndAItemType
 
 export const Item: React.FC<Props> = ({ answer, question, id, isOpen, onClick }) => {
 

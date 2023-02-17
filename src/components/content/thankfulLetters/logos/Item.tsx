@@ -1,10 +1,10 @@
-import { ThankfulLetterItemType } from "../ThankfulLetters";
 import cn from 'classnames';
+import { ThankfulLettersItemType } from '../../../../redux/reducers/static';
 
 type Props = {
   activeItemId: number
   setActiveItemId: React.Dispatch<React.SetStateAction<number>>
-} & ThankfulLetterItemType
+} & ThankfulLettersItemType
 
 export const Item: React.FC<Props> = ({ logo, id, activeItemId, setActiveItemId }) => {
   const handleClick = () => {

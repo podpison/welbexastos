@@ -22,17 +22,8 @@ export const itemsAPI = {
 };
 
 export const customersAPI = {
-  add: async (data: any[]) => {
+  add: async (data: Object) => {
     const docRef = await addDoc(collection(fs, "contactUs"), data);
     return !!docRef;
-  }
-}
-
-export const addAPI = {
-  add: async (collectionName: string, data: any[]) => {
-    for (let item of data) {
-      const docRef = await addDoc(collection(fs, collectionName), item);
-      console.log(docRef)
-    }
-  }
-}
+  },
+};

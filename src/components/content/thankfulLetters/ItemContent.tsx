@@ -1,7 +1,7 @@
-import { ThankfulLetterItemType } from "./ThankfulLetters";
+import { ThankfulLettersItemType } from "../../../redux/reducers/static";
 
 type Props = {
-  items: ThankfulLetterItemType[]
+  items: ThankfulLettersItemType[]
   activeItemId: number
   setFullLetterId: React.Dispatch<React.SetStateAction<number | null>>
 }

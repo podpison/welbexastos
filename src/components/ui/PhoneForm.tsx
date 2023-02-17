@@ -3,9 +3,10 @@ import * as Yup from 'yup';
 import "yup-phone";
 import cn from 'classnames';
 import { Button } from './Button';
+import { customersAPI } from '../../api';
 
 export type PhoneFormType = {
-  type: 'audit' | 'individualWidget' | 'freeDemonstration' | 'freeAccessToTheSystem'
+  type: 'audit' | 'individualWidget' | 'freeDemonstration' | 'freeAccessToTheSystem' | 'tryWidget'
   buttonSign: string
   additionData?: Object
   className?: string
@@ -25,11 +26,14 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting, resetForm }) => {
-        console.log(values, additionData)
-        setSubmitting(false);
-        resetForm()
-        onSuccess && onSuccess();
+      onSubmit={async (values, { setSubmitting, resetForm }) => {
+        setSubmitting(true);
+        let resp = await customersAPI.add({ ...values, ...additionData, type });
+        if (resp) {
+          onSuccess && onSuccess();
+          setSubmitting(false);
+          resetForm();
+        }
       }}
     >
       {({ errors, touched }) => {
@@ -44,7 +48,7 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
             md:max-w-[260px]
             placeholder:text-white
             focus:outline-0`,
-            isError ? 'border-dark-red hover:border-red focus:border-red': 'border-light-stroke hover:border-white focus:border-white',
+              isError ? 'border-dark-red hover:border-red focus:border-red' : 'border-light-stroke hover:border-white focus:border-white',
             )}
             placeholder='+7 (___) ___-__-__'
             name="phone"

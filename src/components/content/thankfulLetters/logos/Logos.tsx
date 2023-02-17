@@ -1,13 +1,13 @@
 import { useResize } from "../../../../hooks/useResize";
+import { ThankfulLettersItemType } from "../../../../redux/reducers/static";
 import { DraggableItems } from "../../../ui/draggableItems/DraggableItems";
-import { ThankfulLetterItemType } from "../ThankfulLetters";
 import { Item } from "./Item";
 import './styles.scss';
 
 type Props = {
   activeItemId: number
   setActiveItemId: React.Dispatch<React.SetStateAction<number>>
-  items: ThankfulLetterItemType[]
+  items: ThankfulLettersItemType[]
 }
 
 export const Logos: React.FC<Props> = ({ activeItemId, items, setActiveItemId }) => {
