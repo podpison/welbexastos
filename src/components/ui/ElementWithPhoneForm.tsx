@@ -21,6 +21,10 @@ export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, additionTe
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const handleIsSuccessModalStatus = () => setIsSuccessModalOpen(prev => !prev);
 
+  const handleFormSubmit = (isSuccess: boolean) => {
+    isSuccess && handleIsSuccessModalStatus();
+  };
+
   let orangeTextSplit = orangeText.substring(orangeText.indexOf("/") + 1, orangeText.lastIndexOf("/"));
   let otherText = orangeText.split('/').filter(i => i != orangeTextSplit && i !== '').join(' ');
 
@@ -48,7 +52,7 @@ export const ElementWithPhoneForm: React.FC<Props> = ({ additionText, additionTe
           {AdditionTexts}
         </div>
       </div>
-      <PhoneForm className='max-sm:mt-5' onSuccess={handleIsSuccessModalStatus} buttonSign={buttonSign} type={type} children={phoneFormChildren} />
+      <PhoneForm className='max-sm:mt-5' onSuccess={handleFormSubmit} buttonSign={buttonSign} type={type} children={phoneFormChildren} />
     </div>
   </section>
 };

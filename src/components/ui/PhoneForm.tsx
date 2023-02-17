@@ -10,7 +10,7 @@ export type PhoneFormType = {
   buttonSign: string
   additionData?: Object
   className?: string
-  onSuccess?: () => void
+  onSuccess?: (isSuccess: boolean) => void
   children?: React.ReactNode
 }
 
@@ -30,10 +30,11 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
         setSubmitting(true);
         let resp = await customersAPI.add({ ...values, ...additionData, type });
         if (resp) {
-          onSuccess && onSuccess();
           setSubmitting(false);
           resetForm();
         }
+
+        onSuccess && onSuccess(resp);
       }}
     >
       {({ errors, touched }) => {

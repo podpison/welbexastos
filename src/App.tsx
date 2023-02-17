@@ -19,6 +19,7 @@ import { ThankfulLetters } from './components/content/thankfulLetters/ThankfulLe
 import { FreeAccessToTheSystem } from './components/content/FreeAccessToTheSystem';
 import { Footer } from './components/ui/footer/Footer';
 import { GradientStrip } from './components/ui/GradientStrip';
+import { DisabledInternetWarning } from './components/ui/DisabledInternetWarning';
 
 function App() {
   return <div className="relative container flex flex-col px-3.5 pt-5 max-w-[1168px]">
@@ -44,6 +45,7 @@ function App() {
     </main>
     <Footer />
 
+    <DisabledInternetWarning />
     <ArrowUp />
     <GradientStrip className='right-3.5' />
     <GradientStrip className='left-3.5' />
