@@ -1,5 +1,5 @@
 import { List } from "../../ui/list/List";
-import { PhoneForm } from "../../ui/PhoneForm";
+import { PhoneForm } from "../../ui/phoneForm/PhoneForm";
 import { Sphere } from "../../ui/Sphere";
 import { Questions } from "./questions/Questions";
 import { useState } from 'react';

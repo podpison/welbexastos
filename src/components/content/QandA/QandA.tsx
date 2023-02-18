@@ -5,6 +5,7 @@ import { Ball } from "../../ui/ball/Ball";
 import { useStaticItems } from './../../../hooks/useStaticItems';
 import { useSelector } from 'react-redux';
 import { selectQAndAItems } from "../../../redux/selectors";
+import { MovingBall } from './../../ui/MovingBall';
 
 export const QandA: React.FC = () => {
   useStaticItems('QAndA');
@@ -20,7 +21,7 @@ export const QandA: React.FC = () => {
   return <section className="mt80-160 relative" id='QAndA'>
     <Light className="bg-orange top-[211px] -translate-y-1/2 -left-8" size={190} />
     <Light className="bg-dark-red top-[211px] -translate-y-1/2 -right-8" size={190} />
-    <Ball className="w-10 h-10 right-[10%] top-[105px]" color="red" />
+    <MovingBall className="w-10 h-10 right-[10%] top-[105px]" maxDeviation={90} duration={3100} color="red" />
     <Ball className="w-10 h-10 left-[10%] top-[50px] md:top-[63px]" color="yellow" />
     <div>
       <h2>Вопрос / Ответ</h2>

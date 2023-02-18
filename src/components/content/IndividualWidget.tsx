@@ -1,9 +1,9 @@
 import { ElementWithPhoneForm } from '../ui/ElementWithPhoneForm';
-import { Ball } from '../ui/ball/Ball';
+import { MovingBall } from './../ui/MovingBall';
 
 export const IndividualWidget: React.FC = () => {
   return <div className='relative'>
-    <Ball className='w-11 h-11 -bottom-14 left-[35%] -translate-x-1/2' color='yellow' />
+    <MovingBall className='w-11 h-11 -bottom-14 left-[35%] -translate-x-1/2' maxDeviation={50} duration={2700} color='yellow' />
     <ElementWithPhoneForm
       heading='Индивидуальный виджет'
       orangeText='/Разработаем виджет индивидуально/ под ваши задачи'

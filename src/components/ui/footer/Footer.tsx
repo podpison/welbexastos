@@ -102,7 +102,7 @@ export const Footer: React.FC = () => {
     </div>
     <div className='flex flex-col max-sm:mt-12 sm:-mt-10 sm:items-end md:-mt-11 lg:mt-8'>
       <p>©WelbeX {currentYear}. Все права защищены.</p>
-      <a className='underline transition-colors hover:text-blue' href='https://policies.google.com/privacy' target='_blank' rel='noopener noreferrer'> Политика конфиденциальности</a>
+      <a className='underline transition-colors hover:text-blue' href='https://welbex.ru/politica.html' target='_blank' rel='noopener noreferrer'> Политика конфиденциальности</a>
     </div>
   </footer>
 };

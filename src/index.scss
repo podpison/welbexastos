@@ -46,11 +46,12 @@
 
 @layer base {
   html {
+    @apply scroll-smooth;
     background-color: #0e1014;
   }
   body {
     @include font-family(true);
-    @apply text-light-text scroll-smooth;
+    @apply text-light-text;
     overflow-x: hidden;
     ::-webkit-scrollbar {
       width: 5px;

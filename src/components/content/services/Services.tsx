@@ -6,6 +6,7 @@ import { Ball } from './../../ui/ball/Ball';
 import { useSelector } from 'react-redux';
 import { selectServiceItems } from "../../../redux/selectors";
 import { useStaticItems } from './../../../hooks/useStaticItems';
+import { MovingBall } from "../../ui/MovingBall";
 
 export const Services: React.FC = () => {
   useStaticItems('services');
@@ -18,7 +19,7 @@ export const Services: React.FC = () => {
   return <section className="relative services mt80-160 max-sm:mt-48" id='services'>
     <Light className="bg-purple -bottom-56 -right-[150px]" size={180} />
     <Light className="bg-red top-2/5 -left-[150px]" size={180} />
-    <Ball className="w-12 h-12 right-[10%] top-[3%]" color="red" />
+    <MovingBall className="w-12 h-12 right-[10%] top-[3%]" maxDeviation={100} color="red" />
     <Ball className="w-5 h-5 -bottom-10 left-1/2 max-sm:-translate-x-1/2 md:left-[44%] lg:left-[44.7%]" color="yellow" />
     <div>
       <h2>Услуги</h2>

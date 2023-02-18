@@ -1,4 +1,4 @@
-import { PhoneForm, PhoneFormType } from "./PhoneForm";
+import { PhoneForm, PhoneFormType } from "./phoneForm/PhoneForm";
 import { Light } from './Light';
 import { Ball } from './ball/Ball';
 import cn from 'classnames';

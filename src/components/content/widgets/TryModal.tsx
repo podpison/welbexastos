@@ -1,5 +1,5 @@
 import { WidgetsItemType } from '../../../redux/reducers/static';
-import { PhoneForm } from '../../ui/PhoneForm';
+import { PhoneForm } from '../../ui/phoneForm/PhoneForm';
 import { Modal } from './../../ui/Modal';
 
 type Props = {
@@ -20,7 +20,7 @@ export const TryModal: React.FC<Props> = ({ isActive, setIsActive, currentItem, 
   };
 
   return <Modal className='max-w-[640px]' isActive={isActive} setIsActive={setIsActive}>
-    <h2 className='orange-to-red-text'>Подтверждение действия</h2>
+    <h3 className='orange-to-red-text text40'>Подтверждение действия</h3>
     <p className='mt10-30 text16-18'>Текущий виджет: <span>{currentItem?.name}</span></p>
     <PhoneForm
       className='mt10-20'

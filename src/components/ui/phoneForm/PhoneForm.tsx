@@ -2,8 +2,8 @@ import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
 import "yup-phone";
 import cn from 'classnames';
-import { Button } from './Button';
-import { customersAPI } from '../../api';
+import { customersAPI } from '../../../api';
+import { Submit } from './submit/Submit';
 
 export type PhoneFormType = {
   type: 'audit' | 'individualWidget' | 'freeDemonstration' | 'freeAccessToTheSystem' | 'tryWidget'
@@ -56,15 +56,7 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
             type="phone"
           />
           {errors.phone && touched.phone && <p className='text-red mt-2.5'>{errors.phone}</p>}
-          <div className='flex mt-5 max-md:flex-col md:gap-x-8 md:mt-7 md:items-center'>
-            <Button className='w-full text-base md:max-w-[260px]'>{buttonSign}</Button>
-            <p className='text-[12px] mt-2.5 md:mt-0 max-w-[22em]'>
-              Нажимая «{buttonSign}», я даю согласие на
-              <span className='underline ml-1 transition-colors hover:text-blue'>
-                <a href='https://policies.google.com/terms?hl=ru' target='_blank' rel='noreferrer noopener'>обработку персональных данных</a>
-              </span>
-            </p>
-          </div>
+          <Submit buttonSign={buttonSign} />
         </Form>
       }}
     </Formik>

@@ -19,7 +19,7 @@ export const FullLetterModal: React.FC<Props> = ({ items, fullLetterId, setFullL
   };
 
   return <Modal className='max-w-[1000px]' isActive={fullLetterId === null ? false : true} setIsActive={setIsActive}>
-    <h2>{isMobile ? 'Благодарность клиента' : 'Благодарственное письмо'}</h2>
+    <h3 className='text40'>{isMobile ? 'Благодарность клиента' : 'Благодарственное письмо'}</h3>
     <div className='mt10-20'>
       <p className="text24 font-medium">
         Компания
