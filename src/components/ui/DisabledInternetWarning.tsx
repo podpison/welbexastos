@@ -24,6 +24,7 @@ export const DisabledInternetWarning: React.FC = () => {
     animate={{
       y: isOnline ? 200 : 0
     }}
+    initial={false}
   >
     <div
       className={cn("w-fit h-fit bg-red px-2 py-3 z-50")}
