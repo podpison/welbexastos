@@ -7,7 +7,7 @@ import { ServicesItemType } from '../../../redux/reducers/static';
 
 type Props = {
   isActive: boolean
-  setIsActive: React.Dispatch<React.SetStateAction<number | null>>
+  setIsActive: React.Dispatch<React.SetStateAction<string | null>>
   maxItemHeight: number
   setMaxItemHeight: React.Dispatch<React.SetStateAction<number>>
 } & ServicesItemType
@@ -16,7 +16,7 @@ export const Item: React.FC<Props> = ({ spriteClassName, description, heading, i
   const itemRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
-    isActive ? setIsActive(null) : setIsActive(id);
+    isActive ? setIsActive(null) : setIsActive(heading);
   };
 
   useLayoutEffect(() => {

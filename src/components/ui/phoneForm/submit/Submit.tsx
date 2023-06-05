@@ -7,7 +7,6 @@ type Props = {
 }
 
 //PP - privacy policy
-
 export const Submit: React.FC<Props> = ({ buttonSign }) => {
   const [isPPOpen, setIsPPOpen] = useState(false);
   const handlePPModalStatus = () => setIsPPOpen(prev => !prev);

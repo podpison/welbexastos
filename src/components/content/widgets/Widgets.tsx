@@ -8,7 +8,7 @@ import { WidgetsItemType } from '../../../redux/reducers/static';
 import { useStaticItems } from './../../../hooks/useStaticItems';
 import { useSelector } from 'react-redux';
 import { selectWidgetItems } from '../../../redux/selectors';
-import { TryModal } from './TryModal';
+import { TryModal } from '../TryModal';
 import { SuccessModal } from '../../ui/SuccessModal';
 
 export const Widgets: React.FC = () => {
@@ -27,7 +27,13 @@ export const Widgets: React.FC = () => {
   }, [items.length]);
 
   return <section className="mt80-160 relative" id='widgets'>
-    <TryModal currentItem={currentItem} isActive={isTryModalOpen} setIsActive={handleTryModalStatus} setIsSuccessModalActive={handleSuccessModalStatus} />
+    <TryModal
+      heading={`Текущий виджет: ${currentItem?.name}`}
+      itemId={currentItem?.id}
+      isActive={isTryModalOpen}
+      setIsActive={handleTryModalStatus}
+      setIsSuccessModalActive={handleSuccessModalStatus}
+    />
     <SuccessModal isActive={isSuccessModalOpen} setIsActive={handleSuccessModalStatus} />
     <Ball className='w-7 h-7 top-[15%] -right-[14px]' color='purple' />
     <Light className='bg-dark-red top-1/2 -translate-y-1/2 -left-16' size={180} />

@@ -1,5 +1,5 @@
 import { List } from './../../ui/list/List';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './styles.scss';
 import { SectionName } from './SectionName';
 import { Light } from '../../ui/Light';
@@ -14,13 +14,18 @@ export type WeSolveProblemsCurrentSectionType = 0 | 1 | 'all';
 export const WeSolveProblems: React.FC = () => {
   useStaticItems('weSolveProblems');
   let items = useSelector(selectWeSolveProblemItems);
-  let innerWidth = useResize((width) => width > 768 ? setCurrentSection('all') : setCurrentSection(0));
+  let innerWidth = useResize();
   let areSectionsBlocked = innerWidth > 768;
   const [currentSection, setCurrentSection] = useState<WeSolveProblemsCurrentSectionType>(areSectionsBlocked ? 'all' : 0);
 
   const handleCurrentSection = (newSection: WeSolveProblemsCurrentSectionType) => {
     areSectionsBlocked ? setCurrentSection('all') : setCurrentSection(newSection);
   };
+
+  useEffect(() => {
+    innerWidth > 768 && setCurrentSection('all');
+    (innerWidth < 768 && currentSection === 'all') && setCurrentSection(0);
+  }, [innerWidth, currentSection]);
 
   return <section className="mt80-160">
     <div className='relative'>

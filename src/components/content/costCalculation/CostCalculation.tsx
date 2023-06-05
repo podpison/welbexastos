@@ -15,7 +15,7 @@ const listItems = [
   '35 дней AmoCRM',
 ];
 
-const questionItemsData = [
+const questionItemsData: CostCalculationItemType[] = [
   {
     heading: 'Пользуетесь amoCRM?',
     type: 'doYouUseAmoCRM',
@@ -49,32 +49,55 @@ const questionItemsData = [
   {
     heading: 'Выберите бонус, который хотите получить',
     type: 'bonus',
-    answersContainerClassName: 'flex flex-nowrap',
     answers: [
-      <span className="flex items-center gap-x-2 min-w-[120px]">
-        <img src={widgetImg} alt='виджет' />
-        30 виджетов
-      </span>,
-      <span className="flex items-center gap-x-2">
-        <img src={discountImg} alt='скидка' />
-        20% на доработку AmoCRM
-      </span>
-    ],
+      {
+        value: '30 виджетов',
+        icon: {
+          src: widgetImg,
+          alt: 'Виджет'
+        }
+      },
+      {
+        value: '20% на доработку AmoCRM',
+        icon: {
+          src: discountImg,
+          alt: 'Скидка'
+        }
+      },
+    ]
   },
 ];
 
-export type CostCalculationItemType = typeof questionItemsData[0];
+export type CostCalculationAnswersType = string | {
+  value: string
+  icon: {
+    src: string
+    alt: string
+  }
+}
+export type CostCalculationItemType = {
+  heading: string
+  type: string
+  answers: CostCalculationAnswersType[]
+}
+
 export type CostCalculationAnswerType = {
   type: string
-  item: string | JSX.Element
-};
+  item: CostCalculationAnswersType
+}
 
-const defaultAnswers = [
-  { type: questionItemsData[0].type, item: questionItemsData[0].answers[0] },
-  { type: questionItemsData[1].type, item: questionItemsData[1].answers[0] },
-  { type: questionItemsData[2].type, item: questionItemsData[2].answers[0] },
-  { type: questionItemsData[3].type, item: questionItemsData[3].answers[0] },
+const defaultAnswers: CostCalculationAnswerType[] = [
+
 ]
+
+for (let item of questionItemsData) {
+  let firstAnswer = item.answers[0];
+
+  defaultAnswers.push({
+    type: item.type,
+    item: typeof firstAnswer === 'object' ? firstAnswer.value : firstAnswer
+  });
+};
 
 export const CostCalculation: React.FC = () => {
   const [isModalActive, setIsModalActive] = useState(false);

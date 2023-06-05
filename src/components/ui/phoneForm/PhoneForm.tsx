@@ -6,7 +6,7 @@ import { customersAPI } from '../../../api';
 import { Submit } from './submit/Submit';
 
 export type PhoneFormType = {
-  type: 'audit' | 'individualWidget' | 'freeDemonstration' | 'freeAccessToTheSystem' | 'tryWidget'
+  type: 'audit' | 'individualWidget' | 'freeDemonstration' | 'freeAccessToTheSystem' | 'tryWidget' | 'tryServices'
   buttonSign: string
   additionData?: Object
   className?: string
@@ -28,6 +28,7 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
       validationSchema={validationSchema}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
+        console.log(additionData)
         let resp = await customersAPI.add({ ...values, ...additionData, type });
         if (resp) {
           setSubmitting(false);

@@ -6,9 +6,10 @@ type Props = {
   className?: string
   isBlue?: boolean
   paddings?: boolean
+  type?: "button" | "submit" | "reset"
 }
 
-export const Button: React.FC<Props> = ({ children, onClick, className, isBlue = true, paddings = true }) => {
+export const Button: React.FC<Props> = ({ children, onClick, className, isBlue = true, paddings = true, type = 'submit' }) => {
   return <button
     className={cn(
       "transition-all shadow-none",
@@ -17,6 +18,7 @@ export const Button: React.FC<Props> = ({ children, onClick, className, isBlue =
       paddings && 'py-5 px-4'
     )}
     onClick={onClick}
+    type={type}
   >
     {children}
   </button>
