@@ -46,7 +46,6 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
     >
       {({ errors, touched, values, getFieldProps }) => {
         let isError = Object.keys(errors).length !== 0;
-        console.log(values)
 
         return <Form className={cn('flex flex-col', className)}>
           {children}
