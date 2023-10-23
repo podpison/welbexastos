@@ -4,6 +4,7 @@ import "yup-phone";
 import cn from 'classnames';
 import { customersAPI } from '../../../api';
 import { Submit } from './submit/Submit';
+import { InputMask } from '@react-input/mask';
 
 export type PhoneFormType = {
   type: 'audit' | 'individualWidget' | 'freeDemonstration' | 'freeAccessToTheSystem' | 'tryWidget' | 'tryServices'
@@ -28,23 +29,29 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
       validationSchema={validationSchema}
       onSubmit={async (values, { setSubmitting, resetForm }) => {
         setSubmitting(true);
-        console.log(additionData)
-        let resp = await customersAPI.add({ ...values, ...additionData, type });
-        if (resp) {
-          setSubmitting(false);
-          resetForm();
-        }
 
-        onSuccess && onSuccess(resp);
+        try {
+          let resp = await customersAPI.add({ ...values, ...additionData, type });
+          if (resp) {
+            resetForm();
+          }
+          
+          onSuccess && onSuccess(resp);
+        } catch (err) {
+          console.error(err)
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
-      {({ errors, touched }) => {
+      {({ errors, touched, values, getFieldProps }) => {
         let isError = Object.keys(errors).length !== 0;
+        console.log(values)
 
         return <Form className={cn('flex flex-col', className)}>
           {children}
           <label className='text14-18 text-[#656566]' htmlFor="phone">Ваш номер телефона</label>
-          <Field
+          <InputMask
             className={cn(`
             text16-18 text-white bg-[rgba(14,_16,_20,_0.6)] px-4 py-5 mt-4 transition-all border
             md:max-w-[260px]
@@ -53,8 +60,10 @@ export const PhoneForm: React.FC<PhoneFormType> = ({ buttonSign, type, additionD
               isError ? 'border-dark-red hover:border-red focus:border-red' : 'border-light-stroke hover:border-white focus:border-white',
             )}
             placeholder='+7 (___) ___-__-__'
-            name="phone"
             type="phone"
+            mask="+7 (___) ___-__-__"
+            replacement={{ _: /\d/ }}
+            {...getFieldProps('phone')}
           />
           {errors.phone && touched.phone && <p className='text-red mt-2.5'>{errors.phone}</p>}
           <Submit buttonSign={buttonSign} />
